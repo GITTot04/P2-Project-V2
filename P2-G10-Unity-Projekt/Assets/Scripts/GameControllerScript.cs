@@ -51,4 +51,5 @@ public class GameControllerScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }
