@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SwipeTest 1.unity
     guid: acd9259384f07ce4f956801985d00035
+  - enabled: 1
+    path: Assets/Scenes/YouLostScreen.unity
+    guid: aafab23a313f72b4597bc479b7430a13
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 7549828bc18916540b8145c55c0bd69c, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3477f9186ed74324eaf79d965e25f423, type: 2}
