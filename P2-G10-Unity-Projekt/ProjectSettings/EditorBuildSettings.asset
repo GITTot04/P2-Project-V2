@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SwipeTest 1.unity
     guid: acd9259384f07ce4f956801985d00035
   - enabled: 1
+    path: Assets/Scenes/MathScreen.unity
+    guid: 742a72a28e2ee624aa8163334ff3d288
+  - enabled: 1
     path: Assets/Scenes/YouLostScreen.unity
     guid: aafab23a313f72b4597bc479b7430a13
   m_configObjects:
