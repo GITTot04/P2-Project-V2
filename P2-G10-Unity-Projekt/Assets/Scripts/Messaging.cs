@@ -67,7 +67,7 @@ public class Messaging : MonoBehaviour
         if (textString.Length > characterLengthLimit + characterAdder)
         {
             spriteRenderer.size += new Vector2(0f, 0.6f);
-            messageBoble.transform.position = new Vector2(0f, -0.4f);
+            messageBoble.transform.position = new Vector2(0f, -0.2f);
             Debug.Log("Sprite size: " + spriteRenderer.size.ToString("F2"));
             characterAdder += characterLengthLimit; 
 
@@ -78,7 +78,7 @@ public class Messaging : MonoBehaviour
     }
     public void Update()
     {
-        TextHolder.transform.position = messageBoble.transform.TransformVector(0.1f, -0.5f, 0f); 
+        TextHolder.transform.position = messageBoble.transform.TransformVector(0.3f, -0.5f, 0f); 
         
     }
     /*private IEnumerator ShowHide(Vector2 start, Vector2 end)
