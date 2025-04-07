@@ -7,20 +7,25 @@ public class GameControllerScript : MonoBehaviour
     public bool swipeDirection;
     public bool canSwipe = true;
     public bool firstTimeInfoScreen = true;
-    public bool timerActive;
-    int timerMinutes = 12;
-    int timer10Seconds;
-    float timerSeconds;
+    public bool timerActive = false;
+    public int timerMinutes = 12;
+    public int timer10Seconds;
+    public float timerSeconds;
     public string time;
+    public int chosenAnswer1;
+    public int chosenAnswer2;
+    public int chosenAnswer3;
 
     private void Awake()
     {
         if (gameController != null)
         {
             Destroy(this);
+            return;
         }
         gameController = this;
         DontDestroyOnLoad(this);
+        time = timerMinutes + ":" + timer10Seconds + (int)timerSeconds;
     }
 
     private void Update()
@@ -38,7 +43,6 @@ public class GameControllerScript : MonoBehaviour
                     timerMinutes += 1;
                     if (timerMinutes == 17)
                     {
-                        timerActive = false;
                         OutOfTime();
                     }
                 }
