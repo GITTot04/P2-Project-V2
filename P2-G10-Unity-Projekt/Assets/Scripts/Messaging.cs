@@ -22,6 +22,7 @@ public class Messaging : MonoBehaviour
     public GameObject emojiPanel;
     public GameObject emoji1;
     public GameObject emojiPlacement;
+    private SpriteRenderer spriteHolder;
     // The offset of the sprite to hide it.
     private Vector2 startPosition = new Vector2(0f,0f);
     private Vector2 endPosition = Vector2.zero;
@@ -29,7 +30,10 @@ public class Messaging : MonoBehaviour
     private float showDuration = 0.5f;
     private float duration = 1f;
 
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRendererMessageBoble;
+    [SerializeField] private Vector2 messageBobleSize;// = new Vector2(0f, 0.8f);
+    [SerializeField] private Vector3 messageBoblePos;// = new Vector3(0f, -1f, 0f);
+    [SerializeField] private Vector3 textPos;//= new Vector3(0.3f, -0.5f, 0f);
     private Rigidbody2D rb;
     private Animator animator;
     private BoxCollider2D boxCollider2D;
@@ -40,8 +44,8 @@ public class Messaging : MonoBehaviour
     public Vector3 scaleChanger;
     public void Awake()
     {
-        spriteRenderer = messageBoble.GetComponent<SpriteRenderer>();
-        spriteRenderer.drawMode = SpriteDrawMode.Sliced;
+        spriteRendererMessageBoble = messageBoble.GetComponent<SpriteRenderer>();
+        spriteRendererMessageBoble.drawMode = SpriteDrawMode.Sliced;
         rb = messageBoble.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         
@@ -64,12 +68,13 @@ public class Messaging : MonoBehaviour
         boxSizeHidden = new Vector2(boxSize.x, 0f);
         */
         int characterAdder = 0;
-        if (textString.Length > characterLengthLimit + characterAdder)
+        int charLenHolder = characterLengthLimit;
+        if (textString.Length >= characterLengthLimit + characterAdder)
         {
-            spriteRenderer.size += new Vector2(0f, 0.6f);
-            messageBoble.transform.position = new Vector2(0f, -0.2f);
-            Debug.Log("Sprite size: " + spriteRenderer.size.ToString("F2"));
-            characterAdder += characterLengthLimit; 
+            spriteRendererMessageBoble.size += messageBobleSize;
+            messageBoble.transform.position += messageBoblePos;
+            Debug.Log("Sprite size: " + spriteRendererMessageBoble.size.ToString("F2"));
+            characterAdder += charLenHolder; 
 
         }
         emojiButton.SetActive(true);
@@ -78,7 +83,7 @@ public class Messaging : MonoBehaviour
     }
     public void Update()
     {
-        TextHolder.transform.position = messageBoble.transform.TransformVector(0.3f, -0.5f, 0f); 
+        TextHolder.transform.position = textPos; //messageBoble.transform.TransformVector(textPos); 
         
     }
     /*private IEnumerator ShowHide(Vector2 start, Vector2 end)
@@ -113,10 +118,12 @@ public class Messaging : MonoBehaviour
         emojiButton.SetActive(false);
         emojiPanel.SetActive(true);
     }
-    public void EmojiPanel()
+    /*public void EmojiPanel()
     {  emojiPanel.SetActive(false);
-       emojiPlacement = Instantiate(emoji1, transform.position += new Vector3(0,0,-5), transform.rotation);
-        emojiPlacement.SetActive(true);
+        spriteHolder = GetComponent<SpriteRenderer>();
+        //spriteHolder = transform.position += new Vector3(0, 0, -5), transform.rotation;
+        //emojiPlacement = spriteHolder.transform.position += new Vector3(0,0,-5), transform.rotation);
+       emojiPlacement.SetActive(true);
         
-    }
+    }*/
 }
