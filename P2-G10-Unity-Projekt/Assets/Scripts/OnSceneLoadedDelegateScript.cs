@@ -23,6 +23,9 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.timerSeconds = 0;
                 GameControllerScript.gameController.time = "12:00";
                 GameControllerScript.gameController.firstTimeInfoScreen = true;
+                GameControllerScript.gameController.chosenAnswer1 = 0;
+                GameControllerScript.gameController.chosenAnswer2 = 0;
+                GameControllerScript.gameController.chosenAnswer3 = 0;
                 break;
             case 1:
                 GameControllerScript.gameController.timerActive = true;

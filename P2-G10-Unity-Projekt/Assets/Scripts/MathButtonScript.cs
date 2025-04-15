@@ -7,7 +7,7 @@ public class MathButtonScript : MonoBehaviour
     Color32 selectedColor = new Color32(150, 150, 150, 255);
     Color32 defaultColor = new Color32(255, 255, 255, 255);
 
-    void Start()
+    void Awake()
     {
         switch (tag)
         {
@@ -45,12 +45,36 @@ public class MathButtonScript : MonoBehaviour
         {
             case "Question1Button":
                 GameControllerScript.gameController.chosenAnswer1 = buttonID;
+                if (buttonID == GameControllerScript.gameController.correctAnswerOption1)
+                {
+                    GameControllerScript.gameController.answer1Result = true;
+                }
+                else
+                {
+                    GameControllerScript.gameController.answer1Result = false;
+                }
                 break;
             case "Question2Button":
                 GameControllerScript.gameController.chosenAnswer2 = buttonID;
+                if (buttonID == GameControllerScript.gameController.correctAnswerOption2)
+                {
+                    GameControllerScript.gameController.answer2Result = true;
+                }
+                else
+                {
+                    GameControllerScript.gameController.answer2Result = false;
+                }
                 break;
             case "Question3Button":
                 GameControllerScript.gameController.chosenAnswer3 = buttonID;
+                if (buttonID == GameControllerScript.gameController.correctAnswerOption3)
+                {
+                    GameControllerScript.gameController.answer3Result = true;
+                }
+                else
+                {
+                    GameControllerScript.gameController.answer3Result = false;
+                }
                 break;
             default:
                 break;

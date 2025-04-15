@@ -15,6 +15,12 @@ public class GameControllerScript : MonoBehaviour
     public int chosenAnswer1;
     public int chosenAnswer2;
     public int chosenAnswer3;
+    public int correctAnswerOption1 = 2;
+    public int correctAnswerOption2 = 1;
+    public int correctAnswerOption3 = 2;
+    public bool answer1Result = false;
+    public bool answer2Result = false;
+    public bool answer3Result = false;
 
     private void Awake()
     {
@@ -55,5 +61,4 @@ public class GameControllerScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
 }
