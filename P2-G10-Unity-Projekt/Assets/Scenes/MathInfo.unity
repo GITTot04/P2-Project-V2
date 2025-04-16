@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeLeftBuildIndex: 2
-  swipeRightBuildIndex: 0
+  swipeRightBuildIndex: 5
 --- !u!114 &1785407418
 MonoBehaviour:
   m_ObjectHideFlags: 0

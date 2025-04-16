@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneInitiator : MonoBehaviour
 {
     float timeSpentMoving;
-    float timeToMove = 2;
+    float timeToMove = 1;
     Vector3 startPos;
     Vector3 endPos = new Vector3(0, 0, 0);
     Vector3 currentPos;

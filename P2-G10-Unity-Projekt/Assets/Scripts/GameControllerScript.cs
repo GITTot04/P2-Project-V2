@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameControllerScript : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class GameControllerScript : MonoBehaviour
     public float timeSpentOnVideo;
     public float timeSpentOnMessages;
     public float timeSpentOnButtonGame;
+    public int buttonGamePoints;
+    public float buttonGameCooldown;
+    public int buttonGameSceneIndex = 3;
 
     private void Awake()
     {
@@ -78,6 +82,22 @@ public class GameControllerScript : MonoBehaviour
                     default:
                         break;
                 }
+            }
+            if (buttonGameCooldown > 0)
+            {
+                buttonGameCooldown -= Time.deltaTime;
+                if (SceneManager.GetActiveScene().buildIndex == buttonGameSceneIndex && buttonGameCooldown >= 10)
+                {
+                    GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:" + (int)buttonGameCooldown;
+                }
+                else if (SceneManager.GetActiveScene().buildIndex == buttonGameSceneIndex && GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text != "00:00")
+                {
+                    GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:0" + (int)buttonGameCooldown;
+                }
+            }
+            else if (buttonGameCooldown < 0 && SceneManager.GetActiveScene().buildIndex == buttonGameSceneIndex && GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text != "00:00")
+            {
+                GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:0" + (int)buttonGameCooldown;
             }
         }
     }
