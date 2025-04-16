@@ -28,7 +28,7 @@ public class GameControllerScript : MonoBehaviour
     public float timeSpentOnButtonGame;
     public int buttonGamePoints;
     public float buttonGameCooldown;
-    public int buttonGameSceneIndex = 3;
+    public int buttonGameSceneIndex = 4;
 
     private void Awake()
     {

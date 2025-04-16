@@ -17,9 +17,7 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
     {
         switch (scene.buildIndex)
         {
-            // Slet timeractive = false i case 0 når MathDone og YouLost scener er added
             case 0:
-                GameControllerScript.gameController.timerActive = false;
                 GameControllerScript.gameController.timerMinutes = 12;
                 GameControllerScript.gameController.timer10Seconds = 0;
                 GameControllerScript.gameController.timerSeconds = 0;
@@ -32,11 +30,13 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.timeSpentOnVideo = 0;
                 GameControllerScript.gameController.timeSpentOnMessages = 0;
                 GameControllerScript.gameController.timeSpentOnButtonGame = 0;
+                GameControllerScript.gameController.buttonGamePoints = 0;
+                GameControllerScript.gameController.buttonGameCooldown = 0;
                 break;
             case 1:
                 GameControllerScript.gameController.timerActive = true;
                 break;
-            case 3:
+            case 4:
                 if (GameControllerScript.gameController.buttonGameCooldown >= 10)
                 {
                     GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:" + (int)GameControllerScript.gameController.buttonGameCooldown;
@@ -73,7 +73,10 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                         break;
                 }
                 break;
-                // add MathDone og YouLost scener
+            case 6:
+            case 7:
+                GameControllerScript.gameController.timerActive = false;
+                break;
             default:
                 break;
         }

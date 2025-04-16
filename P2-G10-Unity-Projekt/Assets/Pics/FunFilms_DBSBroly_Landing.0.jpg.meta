@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FunFilms_DBSBroly_Landing.0_0: -5108136020214828216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
