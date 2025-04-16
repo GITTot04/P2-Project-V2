@@ -11,10 +11,11 @@ using System.Collections;
 public class Messaging : MonoBehaviour
 {
     public Sprite profilePic;
-    public GameObject messageBoble;
+    public GameObject/*[]*/ messageBoble;
     public GameObject TextHolder;
     public TextMeshPro messageText;
     private string textString;
+    //public GameObject boble;
     public string[] messages = { "I am loving Lego", "We are NOT gamers in distress, we are GAMERS IN POWER!!!!!", "Send Nudes", "I believe that we should legalize something, not sure what tho", "Play games, Gain Bitches", "Who is my best friend from somewhere far below this line of balls" };
     public int randomNumber;
     public int characterLengthLimit = 20;
@@ -30,6 +31,8 @@ public class Messaging : MonoBehaviour
     private float showDuration = 0.5f;
     private float duration = 1f;
 
+    public int characterAdder = 0;
+
     private SpriteRenderer spriteRendererMessageBoble;
     [SerializeField] private Vector2 messageBobleSize;// = new Vector2(0f, 0.8f);
     [SerializeField] private Vector3 messageBoblePos;// = new Vector3(0f, -1f, 0f);
@@ -42,6 +45,8 @@ public class Messaging : MonoBehaviour
     private Vector2 boxOffsetHidden;
     private Vector2 boxSizeHidden;
     public Vector3 scaleChanger;
+    //public EmojiSpawner emojiSpawnerScript;
+    //public GameObject[] emoMe;
     public void Awake()
     {
         spriteRendererMessageBoble = messageBoble.GetComponent<SpriteRenderer>();
@@ -52,12 +57,14 @@ public class Messaging : MonoBehaviour
     }
     public void Start()
     {
+        
         //messageBoble.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Dancing knuckle gif funny deez nuts");
         messageBoble.gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
         randomNumber = Random.Range(0, messages.Length);
         //messages = new string[randomNumber];
         messageText.text = messages[randomNumber];
         textString = messageText.text;
+        //boble = messageBoble[randomNumber];
         /*
         //ShowHide(scaleChanger, endPosition);
         boxCollider2D = messageBoble.GetComponent<BoxCollider2D>();
@@ -67,12 +74,13 @@ public class Messaging : MonoBehaviour
         boxOffsetHidden = new Vector2(boxOffset.x, -startPosition.y / 2f);
         boxSizeHidden = new Vector2(boxSize.x, 0f);
         */
-        int characterAdder = 0;
+        
         int charLenHolder = characterLengthLimit;
-        if (textString.Length >= characterLengthLimit + characterAdder)
+         while(textString.Length >= characterLengthLimit + characterAdder)
         {
             spriteRendererMessageBoble.size += messageBobleSize;
             messageBoble.transform.position += messageBoblePos;
+            messageText.transform.position += textPos;
             Debug.Log("Sprite size: " + spriteRendererMessageBoble.size.ToString("F2"));
             characterAdder += charLenHolder; 
 
@@ -80,6 +88,8 @@ public class Messaging : MonoBehaviour
         emojiButton.SetActive(true);
         emojiPanel.SetActive(false);
         emoji1.SetActive(false);
+        emojiButton.transform.position += messageBoblePos - new Vector3(0.0f, 0.03f, 0f);
+        emojiPlacement.transform.position += messageBoblePos - new Vector3(0, 0.04f, 0);
     }
     public void Update()
     {
@@ -115,9 +125,12 @@ public class Messaging : MonoBehaviour
     }*/
         public void EmojiButton()
     {
+        
         emojiButton.SetActive(false);
         emojiPanel.SetActive(true);
+        emojiPanel.transform.position += messageBoblePos - new Vector3(0, 0.02f, 0);
     }
+
     /*public void EmojiPanel()
     {  emojiPanel.SetActive(false);
         spriteHolder = GetComponent<SpriteRenderer>();
@@ -126,4 +139,11 @@ public class Messaging : MonoBehaviour
        emojiPlacement.SetActive(true);
         
     }*/
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject == true)
+        {
+            new Vector3(0.01f, 0.01f, 0f);
+        }
+    }
 }

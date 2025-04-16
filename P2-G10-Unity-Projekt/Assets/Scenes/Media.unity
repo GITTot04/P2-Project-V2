@@ -196,6 +196,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 962214571}
     - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: emojiPanelT
+      value: 
+      objectReference: {fileID: 837275059}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: emojiPlacement
       value: 
       objectReference: {fileID: 1134848002}
@@ -284,6 +288,10 @@ PrefabInstance:
       propertyPath: spriteRend
       value: 
       objectReference: {fileID: 882430002}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: emojiPanelT
+      value: 
+      objectReference: {fileID: 837275059}
     - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: emojiPlacement
       value: 
@@ -403,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &296094539
 Transform:
   m_ObjectHideFlags: 0
@@ -583,6 +591,7 @@ MonoBehaviour:
   spriteRend: {fileID: 296094538}
   messagingScript: {fileID: 0}
   emojiPanelT: {fileID: 0}
+  originalScaling: {x: 0, y: 0, z: 0}
   scaling: {x: 0, y: 0, z: 0}
 --- !u!1 &399797791
 GameObject:
@@ -788,7 +797,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.003144145, y: 0, z: -0.0070587397, w: -0.0017268168}
+  m_margin: {x: 0.012886524, y: 0, z: 0.05383134, w: -0.0017268168}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -858,7 +867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0023599863, y: 0.020000935}
+  m_AnchoredPosition: {x: 0.02, y: 0.020000935}
   m_SizeDelta: {x: 2.3503, y: 0.2236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &589251149
@@ -1279,14 +1288,15 @@ MonoBehaviour:
   - Play games, Gain Bitches
   - Who is my best friend from somewhere far below this line of balls
   randomNumber: 0
-  characterLengthLimit: 21
+  characterLengthLimit: 22
   emojiButton: {fileID: 1898087684}
   emojiPanel: {fileID: 837275057}
   emoji1: {fileID: 611437688}
   emojiPlacement: {fileID: 1134848002}
-  messageBobleSize: {x: 0, y: 2.5}
-  messageBoblePos: {x: 0.1, y: -1, z: 0}
-  textPos: {x: 0.2, y: -0.5, z: 0}
+  characterAdder: 0
+  messageBobleSize: {x: 0, y: 1.4}
+  messageBoblePos: {x: 0, y: -0.5, z: 0}
+  textPos: {x: 0, y: 0.2, z: 0}
   scaleChanger: {x: 0, y: 0, z: 0}
 --- !u!4 &693240830
 Transform:
@@ -1384,6 +1394,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5108136020214828216, guid: 0d390e78f56d68141af48dfee923fb28, type: 3}
     - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: scaling.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: scaling.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: scaling.z
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: emojiPanel
       value: 
       objectReference: {fileID: 837275057}
@@ -1391,6 +1413,10 @@ PrefabInstance:
       propertyPath: spriteRend
       value: 
       objectReference: {fileID: 1290385431}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: emojiPanelT
+      value: 
+      objectReference: {fileID: 837275059}
     - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: emojiPlacement
       value: 
@@ -1663,7 +1689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.49, y: 1.02}
+  m_AnchoredPosition: {x: -0.49, y: 3.23}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837275060
@@ -1700,6 +1726,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7732452998359685965, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
   m_PrefabInstance: {fileID: 119380147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &882430005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+  m_PrefabInstance: {fileID: 119380147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882430002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6af3d049768094cb9f0ad2dab9f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &962214571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1412897645310639022, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
@@ -1710,6 +1747,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7732452998359685965, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
   m_PrefabInstance: {fileID: 41793188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &962214574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+  m_PrefabInstance: {fileID: 41793188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962214571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6af3d049768094cb9f0ad2dab9f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &974584633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1787,6 +1835,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1801100470}
     - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: emojiPanelT
+      value: 
+      objectReference: {fileID: 837275059}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: emojiPlacement
       value: 
       objectReference: {fileID: 1134848002}
@@ -1809,6 +1861,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7732452998359685965, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
   m_PrefabInstance: {fileID: 6882351596104474668}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1048770811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+  m_PrefabInstance: {fileID: 6882351596104474668}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048770808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6af3d049768094cb9f0ad2dab9f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1134848002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1897,7 @@ Transform:
   m_GameObject: {fileID: 1134848002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 2, z: -3}
+  m_LocalPosition: {x: -0.89, y: 4.24, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1850,6 +1913,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7732452998359685965, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
   m_PrefabInstance: {fileID: 806112213}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1290385434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+  m_PrefabInstance: {fileID: 806112213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290385431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6af3d049768094cb9f0ad2dab9f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1408189268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2195,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7732452998359685965, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
   m_PrefabInstance: {fileID: 1835859865}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1530893674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+  m_PrefabInstance: {fileID: 1835859865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530893671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6af3d049768094cb9f0ad2dab9f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1801100470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1412897645310639022, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
@@ -2131,6 +2216,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7732452998359685965, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
   m_PrefabInstance: {fileID: 974584633}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1801100473 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+  m_PrefabInstance: {fileID: 974584633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801100470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6af3d049768094cb9f0ad2dab9f9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1835859865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2207,6 +2303,10 @@ PrefabInstance:
       propertyPath: spriteRend
       value: 
       objectReference: {fileID: 1530893671}
+    - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: emojiPanelT
+      value: 
+      objectReference: {fileID: 837275059}
     - target: {fileID: 8306460155736764835, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: emojiPlacement
       value: 
@@ -2295,6 +2395,78 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1048770811}
+        m_TargetAssemblyTypeName: EmojiSpawner, Assembly-CSharp
+        m_MethodName: OrignalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1290385434}
+        m_TargetAssemblyTypeName: EmojiSpawner, Assembly-CSharp
+        m_MethodName: OrignalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1801100473}
+        m_TargetAssemblyTypeName: EmojiSpawner, Assembly-CSharp
+        m_MethodName: OrignalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 962214574}
+        m_TargetAssemblyTypeName: EmojiSpawner, Assembly-CSharp
+        m_MethodName: OrignalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 882430005}
+        m_TargetAssemblyTypeName: EmojiSpawner, Assembly-CSharp
+        m_MethodName: OrignalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1530893674}
+        m_TargetAssemblyTypeName: EmojiSpawner, Assembly-CSharp
+        m_MethodName: OrignalScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!212 &1898087686
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2359,7 +2531,7 @@ Transform:
   m_GameObject: {fileID: 1898087684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.27, y: 3.34, z: -1}
+  m_LocalPosition: {x: 0.81, y: 4.26, z: -1}
   m_LocalScale: {x: 0.4425, y: 0.4425, z: 0.4425}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2502,6 +2674,93 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2040256082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040256084}
+  - component: {fileID: 2040256083}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &2040256083
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040256082}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.9924528, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &2040256084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040256082}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.6, y: 4.34, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112725174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,8 +2805,28 @@ PrefabInstance:
       value: Emoji
       objectReference: {fileID: 0}
     - target: {fileID: 2293414437636984963, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293414437636984963, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293414437636984963, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293414437636984963, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1048770808}
+    - target: {fileID: 2293414437636984963, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2293414437636984963, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EmojiSpawner, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2293414437636984963, guid: 136eb33a1284cdc4f997e83825995814, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -2677,3 +2956,4 @@ SceneRoots:
   - {fileID: 589251152}
   - {fileID: 296094539}
   - {fileID: 837275059}
+  - {fileID: 2040256084}
