@@ -26,6 +26,10 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.chosenAnswer1 = 0;
                 GameControllerScript.gameController.chosenAnswer2 = 0;
                 GameControllerScript.gameController.chosenAnswer3 = 0;
+                GameControllerScript.gameController.timeSpentOnMath = 0;
+                GameControllerScript.gameController.timeSpentOnVideo = 0;
+                GameControllerScript.gameController.timeSpentOnMessages = 0;
+                GameControllerScript.gameController.timeSpentOnButtonGame = 0;
                 break;
             case 1:
                 GameControllerScript.gameController.timerActive = true;

@@ -39,7 +39,7 @@ public class SceneInitiator : MonoBehaviour
         {
             currentActiveSceneIndex = 1;
         }
-        GameControllerScript.gameController.timerActive = true;
+        GameControllerScript.gameController.timerActive = true; // Kan skabe errors med tid senere
     }
 
     private void Update()

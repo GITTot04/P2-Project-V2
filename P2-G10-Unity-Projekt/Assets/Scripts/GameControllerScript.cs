@@ -21,6 +21,10 @@ public class GameControllerScript : MonoBehaviour
     public bool answer1Result = false;
     public bool answer2Result = false;
     public bool answer3Result = false;
+    public float timeSpentOnMath;
+    public float timeSpentOnVideo;
+    public float timeSpentOnMessages;
+    public float timeSpentOnButtonGame;
 
     private void Awake()
     {
@@ -54,6 +58,27 @@ public class GameControllerScript : MonoBehaviour
                 }
             }
             time = timerMinutes + ":" + timer10Seconds + (int)timerSeconds;
+            if (canSwipe)
+            {
+                switch (SceneManager.GetActiveScene().buildIndex)
+                {
+                    case 1:
+                    case 5:
+                        timeSpentOnMath += Time.deltaTime;
+                        break;
+                    case 2:
+                        timeSpentOnVideo += Time.deltaTime;
+                        break;
+                    case 3:
+                        timeSpentOnMessages += Time.deltaTime;
+                        break;
+                    case 4:
+                        timeSpentOnButtonGame += Time.deltaTime;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
     // Ændre 0 til "You Lost" skærmens index
