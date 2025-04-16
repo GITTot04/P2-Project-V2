@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeLeftBuildIndex: 0
-  swipeRightBuildIndex: 2
+  swipeRightBuildIndex: 3
 --- !u!114 &1785407418
 MonoBehaviour:
   m_ObjectHideFlags: 0
