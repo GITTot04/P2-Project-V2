@@ -4,6 +4,7 @@ using TMPro;
 
 public class OnSceneLoadedDelegateScript : MonoBehaviour
 {
+    GameObject grayscale;
     string leaderboardText;
     void OnEnable()
     {
@@ -34,7 +35,18 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.buttonGameCooldown = 0;
                 break;
             case 1:
+                if (grayscale == null)
+                {
+                    grayscale = GameObject.Find("Grayscale");
+                }
+                grayscale.SetActive(false);
                 GameControllerScript.gameController.timerActive = true;
+                if (GameControllerScript.gameController.firstTimeInfoScene)
+                {
+                    GameControllerScript.gameController.FirstTimeNotification();
+                    grayscale.SetActive(true);
+                    GameControllerScript.gameController.firstTimeInfoScene = false;
+                }
                 break;
             case 4:
                 if (GameControllerScript.gameController.buttonGameCooldown >= 10)

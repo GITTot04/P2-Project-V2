@@ -29,7 +29,7 @@ public class Swiping : MonoBehaviour
         }
     }
 
-    void SwipeLeft(int buildIndex)
+    public void SwipeLeft(int buildIndex)
     {
         if (GameControllerScript.gameController.canSwipe == true && buildIndex != 5)
         {
@@ -45,7 +45,7 @@ public class Swiping : MonoBehaviour
         }
     }
 
-    void SwipeRight(int buildIndex)
+    public void SwipeRight(int buildIndex)
     {
         if (GameControllerScript.gameController.canSwipe == true && buildIndex != 0)
         {

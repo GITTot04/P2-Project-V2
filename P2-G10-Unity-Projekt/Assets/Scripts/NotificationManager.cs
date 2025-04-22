@@ -16,7 +16,7 @@ public class NotificationManager : MonoBehaviour
             {
                 return instance;
             }
-            instance = FindObjectOfType<NotificationManager>();
+            instance = FindFirstObjectByType<NotificationManager>();
 
             if(instance !=null)
             {
@@ -50,12 +50,12 @@ public class NotificationManager : MonoBehaviour
     [SerializeField] private Button notificationButton; //Serializefield to allow the button to be set in the inspector and display the notififcation.
     [SerializeField] private TextMeshProUGUI notificationText; //to display a text inside the button
     [SerializeField] private float fadeTime; //to set the time it takes to fade out the notification on inspector
-    [SerializeField] private float slideDuration = 0.5f; // Duration of the slide animation
-    [SerializeField] private Vector2 offScreenPosition = new Vector2(0,500); //position off-scrren (above the screen)
-    [SerializeField] private Vector2 onScreenPosition = new Vector2(0, 0); //Final position on screen
+    [SerializeField] private float slideDuration = 1f; // Duration of the slide animation
+    [SerializeField] private Vector2 offScreenPosition = new Vector2(0, 6); //position off-scrren (above the screen)
+    [SerializeField] private Vector2 onScreenPosition = new Vector2(0, 5); //Final position on screen
 
     private IEnumerator notificationCoroutine; //private IEnumerator to allow the notification to be displayed for a set amount of time. 
-    public void SetNewNotification(string message, string sceneName)
+    public void SetNewNotification(string message, int sceneIndex)
     {
         if(notificationCoroutine != null) //This will be true when a notifaction is currently fading out, so when it's active.
         {
@@ -63,7 +63,14 @@ public class NotificationManager : MonoBehaviour
         }
 
         notificationButton.onClick.RemoveAllListeners(); //This will clear all the pervious listeners 
-        notificationButton.onClick.AddListener(() => LoadScene(sceneName));
+        if (sceneIndex < SceneManager.GetActiveScene().buildIndex)
+        {
+            notificationButton.onClick.AddListener(() => GameObject.Find("SceneObjects").GetComponent<Swiping>().SwipeRight(sceneIndex));
+        }
+        else
+        {
+            notificationButton.onClick.AddListener(() => GameObject.Find("SceneObjects").GetComponent<Swiping>().SwipeLeft(sceneIndex));
+        }
 
         notificationText.text = message; //set the the button text
         notificationButton.gameObject.SetActive(true); //Show the button
@@ -108,10 +115,5 @@ public class NotificationManager : MonoBehaviour
             yield return null; 
         }
         notificationButton.gameObject.SetActive(false);
-    }
-
-    private void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName); // Load the specified scene when the notification button is cliked
     }
 }

@@ -29,6 +29,7 @@ public class GameControllerScript : MonoBehaviour
     public int buttonGamePoints;
     public float buttonGameCooldown;
     public int buttonGameSceneIndex = 4;
+    public bool firstTimeInfoScene = true;
 
     private void Awake()
     {
@@ -105,5 +106,10 @@ public class GameControllerScript : MonoBehaviour
     void OutOfTime()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void FirstTimeNotification()
+    {
+        NotificationManager.Instance.SetNewNotification("This is a test notification", 2);
     }
 }
