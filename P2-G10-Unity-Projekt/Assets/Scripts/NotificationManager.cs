@@ -67,9 +67,13 @@ public class NotificationManager : MonoBehaviour
         {
             notificationButton.onClick.AddListener(() => GameObject.Find("SceneObjects").GetComponent<Swiping>().SwipeRight(sceneIndex));
         }
-        else
+        else if (sceneIndex > SceneManager.GetActiveScene().buildIndex)
         {
             notificationButton.onClick.AddListener(() => GameObject.Find("SceneObjects").GetComponent<Swiping>().SwipeLeft(sceneIndex));
+        }
+        else
+        {
+            notificationButton.onClick.AddListener(() => SceneManager.LoadScene(sceneIndex));
         }
 
         notificationText.text = message; //set the the button text

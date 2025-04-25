@@ -11,6 +11,7 @@ public class ButtonScript : MonoBehaviour
             GameControllerScript.gameController.buttonGamePoints++;
             GameControllerScript.gameController.buttonGameCooldown = 30;
             GameObject.Find("ButtonPointText").GetComponent<TextMeshProUGUI>().text = "Point: " + GameControllerScript.gameController.buttonGamePoints;
+            GameControllerScript.gameController.buttonNotificationReady = true;
             switch (GameControllerScript.gameController.buttonGamePoints)
             {
                 case 7:

@@ -33,6 +33,8 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.timeSpentOnButtonGame = 0;
                 GameControllerScript.gameController.buttonGamePoints = 0;
                 GameControllerScript.gameController.buttonGameCooldown = 0;
+                GameControllerScript.gameController.skipInfoScreen = false;
+                GameControllerScript.gameController.previousScene = 0;
                 break;
             case 1:
                 if (grayscale == null)

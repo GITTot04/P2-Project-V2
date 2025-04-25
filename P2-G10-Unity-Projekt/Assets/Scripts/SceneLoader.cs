@@ -7,4 +7,11 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(buildIndex);
     }
+    
+    public void LoadMathScene(int buildIndex) 
+    {
+        GameControllerScript.gameController.skipInfoScreen = true;
+        SceneManager.LoadScene(buildIndex);
+    }
+    
 }

@@ -47,6 +47,18 @@ public class Swiping : MonoBehaviour
 
     public void SwipeRight(int buildIndex)
     {
+        if (GameControllerScript.gameController.canSwipe == true && GameControllerScript.gameController.skipInfoScreen == true && buildIndex == 1)
+        {
+            transform.position = new Vector3(0, 0, 10);
+            GameControllerScript.gameController.swipeDirection = false;
+            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+            if (GameObject.Find("EventSystem") != null)
+            {
+                GameObject.Find("EventSystem").SetActive(false);
+            }
+            SceneManager.LoadScene(5, LoadSceneMode.Additive);
+            GameControllerScript.gameController.canSwipe = false;
+        }
         if (GameControllerScript.gameController.canSwipe == true && buildIndex != 0)
         {
             transform.position = new Vector3(0, 0, 10);

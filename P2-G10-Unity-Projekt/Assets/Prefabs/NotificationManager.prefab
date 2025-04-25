@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationButton: {fileID: 6905143494244480336}
   notificationText: {fileID: 4473608700981574957}
-  fadeTime: 5
+  fadeTime: 15
   slideDuration: 1
   offScreenPosition: {x: 0, y: 5}
   onScreenPosition: {x: 0, y: 4.16}
@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5479666066880928362, guid: 97e330a60a37545ff98ffefd425b7bdb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 5479666066880928362, guid: 97e330a60a37545ff98ffefd425b7bdb, type: 3}
       propertyPath: m_LocalRotation.w

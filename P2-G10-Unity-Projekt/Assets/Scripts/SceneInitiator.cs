@@ -13,11 +13,13 @@ public class SceneInitiator : MonoBehaviour
     {
         if (!GameControllerScript.gameController.firstTimeInfoScreen)
         {
-            if (GameControllerScript.gameController.swipeDirection == true)
+            if (GameControllerScript.gameController.skipInfoScreen == true && SceneManager.GetActiveScene().buildIndex == 5 && (GameControllerScript.gameController.previousScene == 1 || GameControllerScript.gameController.previousScene == 2))
+            {
+                // Do nothing
+            } else if (GameControllerScript.gameController.swipeDirection == true)
             {
                 transform.position = new Vector3(-5, 0, 0);
-            }
-            if (GameControllerScript.gameController.swipeDirection == false)
+            } else if (GameControllerScript.gameController.swipeDirection == false)
             {
                 transform.position = new Vector3(5, 0, 0);
             }
@@ -40,6 +42,7 @@ public class SceneInitiator : MonoBehaviour
             currentActiveSceneIndex = 1;
         }
         GameControllerScript.gameController.timerActive = true; // Kan skabe errors med tid senere
+        GameControllerScript.gameController.previousScene = SceneManager.GetSceneAt(currentActiveSceneIndex).buildIndex;
     }
 
     private void Update()

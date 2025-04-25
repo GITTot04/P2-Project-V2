@@ -30,6 +30,9 @@ public class GameControllerScript : MonoBehaviour
     public float buttonGameCooldown;
     public int buttonGameSceneIndex = 4;
     public bool firstTimeInfoScene = true;
+    public bool skipInfoScreen = false;
+    public int previousScene;
+    public bool buttonNotificationReady = false;
 
     private void Awake()
     {
@@ -100,6 +103,10 @@ public class GameControllerScript : MonoBehaviour
             {
                 GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:0" + (int)buttonGameCooldown;
             }
+            if (buttonGameCooldown < 0 && buttonNotificationReady == true && NotificationManager.Instance != null)
+            {
+                ButtonNotification();
+            }
         }
     }
     // Ændre 0 til "You Lost" skærmens index
@@ -110,6 +117,15 @@ public class GameControllerScript : MonoBehaviour
 
     public void FirstTimeNotification()
     {
-        NotificationManager.Instance.SetNewNotification("This is a test notification", 2);
+        NotificationManager.Instance.SetNewNotification("Se denne seje video!", 2);
+    }
+    public void MessageNotification()
+    {
+        NotificationManager.Instance.SetNewNotification("Se denne nye besked!", 3);
+    }
+    public void ButtonNotification()
+    {
+        NotificationManager.Instance.SetNewNotification("Du kan få et point!", 4);
+        buttonNotificationReady = false;
     }
 }

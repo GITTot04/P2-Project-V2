@@ -205,7 +205,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 79950098}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadMathScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -767,18 +767,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1201499227}
-    - target: {fileID: 4087558142999305258, guid: ef555dbf29f2b458ab7f0e8a3b2826ab, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002709491733105710, guid: ef555dbf29f2b458ab7f0e8a3b2826ab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002709491733105710, guid: ef555dbf29f2b458ab7f0e8a3b2826ab, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 9045687527569142896, guid: ef555dbf29f2b458ab7f0e8a3b2826ab, type: 3}
       propertyPath: m_Name
       value: NotificationManager
