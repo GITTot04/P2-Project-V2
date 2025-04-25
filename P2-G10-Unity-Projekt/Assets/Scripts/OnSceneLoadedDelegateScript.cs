@@ -35,6 +35,9 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.buttonGameCooldown = 0;
                 GameControllerScript.gameController.skipInfoScreen = false;
                 GameControllerScript.gameController.previousScene = 0;
+                GameControllerScript.gameController.buttonNotificationReady = false;
+                GameControllerScript.gameController.messageNotificationReady = false;
+                GameControllerScript.gameController.messageNotificationCooldown = 20;
                 break;
             case 1:
                 if (grayscale == null)
@@ -49,6 +52,21 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                     grayscale.SetActive(true);
                     GameControllerScript.gameController.firstTimeInfoScene = false;
                 }
+                break;
+            case 2:
+                if (GameControllerScript.gameController.firstTimeVideoScene)
+                {
+                    GameControllerScript.gameController.MessageNotification();
+                    GameControllerScript.gameController.firstTimeVideoScene = false;
+                }
+                break;
+            case 3:
+                if (GameControllerScript.gameController.firstTimeMessageScene)
+                {
+                    GameControllerScript.gameController.ButtonNotification();
+                    GameControllerScript.gameController.firstTimeMessageScene = false;
+                }
+                GameControllerScript.gameController.messageNotificationReady = true;
                 break;
             case 4:
                 if (GameControllerScript.gameController.buttonGameCooldown >= 10)

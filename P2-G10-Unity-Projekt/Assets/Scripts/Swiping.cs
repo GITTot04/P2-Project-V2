@@ -40,6 +40,10 @@ public class Swiping : MonoBehaviour
             {
                 GameObject.Find("EventSystem").SetActive(false);
             }
+            if (NotificationManager.Instance != null)
+            {
+                Destroy(NotificationManager.Instance);
+            }
             SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
             GameControllerScript.gameController.canSwipe = false;
         }
@@ -56,6 +60,10 @@ public class Swiping : MonoBehaviour
             {
                 GameObject.Find("EventSystem").SetActive(false);
             }
+            if (NotificationManager.Instance != null)
+            {
+                Destroy(NotificationManager.Instance);
+            }
             SceneManager.LoadScene(5, LoadSceneMode.Additive);
             GameControllerScript.gameController.canSwipe = false;
         }
@@ -67,6 +75,10 @@ public class Swiping : MonoBehaviour
             if (GameObject.Find("EventSystem") != null)
             {
                 GameObject.Find("EventSystem").SetActive(false);
+            }
+            if (NotificationManager.Instance != null)
+            {
+                Destroy(NotificationManager.Instance);
             }
             SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
             GameControllerScript.gameController.canSwipe = false;
