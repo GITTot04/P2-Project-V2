@@ -37,6 +37,7 @@ public class GameControllerScript : MonoBehaviour
     public bool buttonNotificationReady = false;
     public bool messageNotificationReady = false;
     public float messageNotificationCooldown = 20;
+    public bool doNotSwipe;
 
     private void Awake()
     {

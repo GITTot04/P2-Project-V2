@@ -18,11 +18,11 @@ public class Swiping : MonoBehaviour
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             endTouchPos = Input.GetTouch(0).position;
-            if (endTouchPos.x > startTouchPos.x)
+            if (endTouchPos.x > startTouchPos.x + 30)
             {
                 SwipeLeft(swipeLeftBuildIndex);
             }
-            if (endTouchPos.x < startTouchPos.x)
+            if (endTouchPos.x < startTouchPos.x - 30)
             {
                 SwipeRight(swipeRightBuildIndex);
             }
@@ -31,7 +31,7 @@ public class Swiping : MonoBehaviour
 
     public void SwipeLeft(int buildIndex)
     {
-        if (GameControllerScript.gameController.canSwipe == true && buildIndex != 5)
+        if (GameControllerScript.gameController.canSwipe == true && (buildIndex != 5 && buildIndex != 0))
         {
             transform.position = new Vector3(0, 0, 10);
             GameControllerScript.gameController.swipeDirection = true;

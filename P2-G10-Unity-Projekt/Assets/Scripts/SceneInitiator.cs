@@ -13,9 +13,9 @@ public class SceneInitiator : MonoBehaviour
     {
         if (!GameControllerScript.gameController.firstTimeInfoScreen)
         {
-            if (GameControllerScript.gameController.skipInfoScreen == true && SceneManager.GetActiveScene().buildIndex == 5 && (GameControllerScript.gameController.previousScene == 1 || GameControllerScript.gameController.previousScene == 2))
+            if ((GameControllerScript.gameController.skipInfoScreen == true && SceneManager.GetActiveScene().buildIndex == 5 && (GameControllerScript.gameController.previousScene == 1 || GameControllerScript.gameController.previousScene == 2)) || GameControllerScript.gameController.doNotSwipe == true)
             {
-                // Do nothing
+                GameControllerScript.gameController.doNotSwipe = false;
             } else if (GameControllerScript.gameController.swipeDirection == true)
             {
                 transform.position = new Vector3(-5, 0, 0);

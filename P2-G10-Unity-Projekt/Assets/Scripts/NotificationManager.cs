@@ -74,6 +74,7 @@ public class NotificationManager : MonoBehaviour
         else
         {
             notificationButton.onClick.AddListener(() => SceneManager.LoadScene(sceneIndex));
+            GameControllerScript.gameController.doNotSwipe = true;
         }
 
         notificationText.text = message; //set the the button text
