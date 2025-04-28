@@ -15,6 +15,7 @@ MonoBehaviour:
   Keys: 0100000007000000
   Values:
   - {fileID: 7409656416245683426}
+<<<<<<< Updated upstream
   - {fileID: 1953761182215003024}
 --- !u!114 &1953761182215003024
 MonoBehaviour:
@@ -31,6 +32,10 @@ MonoBehaviour:
   m_LoaderManagerInstance: {fileID: 3244836000479716737}
   m_InitManagerOnStart: 1
 --- !u!114 &3244836000479716737
+=======
+  - {fileID: 3384180419319712072}
+--- !u!114 &1500451728029150835
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +50,25 @@ MonoBehaviour:
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders:
+<<<<<<< Updated upstream
   - {fileID: 11400000, guid: f79d31c78d5e49e4b8907aba4e1a9e5c, type: 2}
+=======
+  - {fileID: 11400000, guid: f3aa92886d37a0b489a2d03d4ece175a, type: 2}
+--- !u!114 &3384180419319712072
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179fc3111e144bc4688dca4038b3265d, type: 3}
+  m_Name: Android Settings
+  m_EditorClassIdentifier: 
+  m_LoaderManagerInstance: {fileID: 1500451728029150835}
+  m_InitManagerOnStart: 1
+>>>>>>> Stashed changes
 --- !u!114 &5171507848387565694
 MonoBehaviour:
   m_ObjectHideFlags: 2

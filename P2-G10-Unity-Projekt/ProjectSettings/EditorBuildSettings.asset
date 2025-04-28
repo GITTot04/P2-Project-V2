@@ -46,7 +46,11 @@ EditorBuildSettings:
     guid: 2942e1179a0094c1597871bd860b603f
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 7549828bc18916540b8145c55c0bd69c, type: 2}
+<<<<<<< Updated upstream
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 335efa41d5856304287b5c9624d94618, type: 2}
+=======
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: c25d847b2c9e80e4ca7033c8f6815c82, type: 2}
+>>>>>>> Stashed changes
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3477f9186ed74324eaf79d965e25f423, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
