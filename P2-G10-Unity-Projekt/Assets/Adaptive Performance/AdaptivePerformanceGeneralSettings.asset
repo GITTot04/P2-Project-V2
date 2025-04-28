@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 7409656416245683426}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1953761182215003024}
 --- !u!114 &1953761182215003024
 MonoBehaviour:
@@ -41,6 +42,10 @@ MonoBehaviour:
   - {fileID: 3384180419319712072}
 --- !u!114 &1500451728029150835
 >>>>>>> Stashed changes
+=======
+  - {fileID: 3384180419319712072}
+--- !u!114 &1500451728029150835
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,8 +62,11 @@ MonoBehaviour:
   m_Loaders:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 11400000, guid: f79d31c78d5e49e4b8907aba4e1a9e5c, type: 2}
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   - {fileID: 11400000, guid: f3aa92886d37a0b489a2d03d4ece175a, type: 2}
@@ -77,6 +85,9 @@ MonoBehaviour:
   m_LoaderManagerInstance: {fileID: 1500451728029150835}
   m_InitManagerOnStart: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

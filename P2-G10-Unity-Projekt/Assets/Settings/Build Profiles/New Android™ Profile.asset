@@ -877,7 +877,11 @@ MonoBehaviour:
         m_CurrentDeploymentTargetId: R5CNC102Y9R
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         m_BuildType: 2
+=======
+        m_BuildType: 1
+>>>>>>> Stashed changes
 =======
         m_BuildType: 1
 >>>>>>> Stashed changes
