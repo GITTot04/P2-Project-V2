@@ -49,7 +49,11 @@ EditorBuildSettings:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 335efa41d5856304287b5c9624d94618, type: 2}
+=======
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: c25d847b2c9e80e4ca7033c8f6815c82, type: 2}
+>>>>>>> Stashed changes
 =======
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: c25d847b2c9e80e4ca7033c8f6815c82, type: 2}
 >>>>>>> Stashed changes
