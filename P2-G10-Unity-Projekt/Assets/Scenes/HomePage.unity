@@ -254,11 +254,36 @@ MonoBehaviour:
   swipeDirection: 0
   canSwipe: 1
   firstTimeInfoScreen: 1
-  timerActive: 1
+  timerActive: 0
+  timerMinutes: 12
+  timer10Seconds: 0
+  timerSeconds: 0
   time: 
   chosenAnswer1: 0
   chosenAnswer2: 0
   chosenAnswer3: 0
+  correctAnswerOption1: 2
+  correctAnswerOption2: 1
+  correctAnswerOption3: 2
+  answer1Result: 0
+  answer2Result: 0
+  answer3Result: 0
+  timeSpentOnMath: 0
+  timeSpentOnVideo: 0
+  timeSpentOnMessages: 0
+  timeSpentOnButtonGame: 0
+  buttonGamePoints: 0
+  buttonGameCooldown: 0
+  buttonGameSceneIndex: 4
+  firstTimeInfoScene: 1
+  firstTimeVideoScene: 1
+  firstTimeMessageScene: 1
+  skipInfoScreen: 0
+  previousScene: 0
+  buttonNotificationReady: 0
+  messageNotificationReady: 0
+  messageNotificationCooldown: 20
+  doNotSwipe: 0
 --- !u!114 &115506493
 MonoBehaviour:
   m_ObjectHideFlags: 0
