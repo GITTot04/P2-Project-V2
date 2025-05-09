@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 684940526}
   - component: {fileID: 684940529}
   - component: {fileID: 684940528}
-  - component: {fileID: 684940527}
+  - component: {fileID: 684940530}
   m_Layer: 5
   m_Name: Clock
   m_TagString: Untagged
@@ -857,18 +857,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &684940527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684940525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c22a4cf3aa72f6e4bbe2c3e8f107ab65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &684940528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,7 +877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 12:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -968,6 +956,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684940525}
   m_CullTransparentMesh: 1
+--- !u!114 &684940530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684940525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22a4cf3aa72f6e4bbe2c3e8f107ab65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &768561477
 GameObject:
   m_ObjectHideFlags: 0
