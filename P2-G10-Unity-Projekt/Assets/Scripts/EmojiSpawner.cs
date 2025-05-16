@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EmojiSpawner : MonoBehaviour
 {
-    public GameObject[] emojiPlacement;
+    
     public GameObject emojiPanel;
     public GameObject spriteRend;
     public Messaging messagingScript;
@@ -16,8 +16,8 @@ public class EmojiSpawner : MonoBehaviour
     public void Awake()
     {
         originalScaling = spriteRend.transform.localScale;
-        messagingScript.emojiSpot1 = false;
-        messagingScript.emojiSpot2 = false;
+        //messagingScript.emojiSpot1 = false;
+        //messagingScript.emojiSpot2 = false;
         //spriteRend.transform.localScale = originalScaling;
     }
     public void OrignalScale()
@@ -27,6 +27,7 @@ public class EmojiSpawner : MonoBehaviour
     }
     public void EmojiSpawning(/*Transform emojiPlacement*/)
     {
+        
         //scaling = new Vector3(0.5f, 0.5f, 0.5f);
         emojiPanel.SetActive(false);
         spriteRend.GetComponent<Button>().enabled = false;
@@ -34,24 +35,27 @@ public class EmojiSpawner : MonoBehaviour
         spriteRend.transform.SetParent(emojiPlacement.transform, false);
         spriteRend.transform.SetParent(null);*/
         spriteRend.transform.localScale = scaling;
-        if(messagingScript.emojiSpot1 == false)
+        if(messagingScript.emojiSpot1 == false && messagingScript.spawnedMessage1 == true)
         {
-          a = Instantiate(spriteRend, emojiPlacement[0].transform.position, emojiPlacement[0].transform.rotation);
+          a = Instantiate(spriteRend, messagingScript.emojiPlacement[0].transform.position, messagingScript.emojiPlacement[0].transform.rotation);
         
-        messagingScript.emojiButton.SetActive(true);
+        //messagingScript.emojiButton.SetActive(true);
             messagingScript.emojiSpot1 = true;
         }
-        else if(messagingScript.emojiSpot2 == false)
+        else if(messagingScript.emojiSpot2 == false && messagingScript.spawnedMessage2 == true)
         {
-            b = Instantiate(spriteRend, emojiPlacement[1].transform.position, emojiPlacement[1].transform.rotation);
+            b = Instantiate(spriteRend, messagingScript.emojiPlacement[1].transform.position, messagingScript.emojiPlacement[1].transform.rotation);
 
-            messagingScript.emojiButton.SetActive(true);
+            //messagingScript.emojiButton.SetActive(true);
             messagingScript.emojiSpot2 = true;
         }
-        if(messagingScript.emojiSpot1 == true && messagingScript.emojiSpot2 == true)
+        if (messagingScript.emojiSpot2 == true && messagingScript.spawnedMessage2 == true)
         {
             a = b;
-            b = Instantiate(spriteRend, emojiPlacement[1].transform.position, emojiPlacement[1].transform.rotation);
+            Destroy(b);
+            //b = Instantiate(spriteRend, emojiPlacement[1].transform.position, emojiPlacement[1].transform.rotation);
+            b = Instantiate(spriteRend, messagingScript.emojiPlacement[1].transform.position, messagingScript.emojiPlacement[1].transform.rotation);
+            //b.transform.position = messagingScript.emojiPlacement[1].transform.position;
 
         }
         

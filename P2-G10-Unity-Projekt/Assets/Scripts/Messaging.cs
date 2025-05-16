@@ -26,13 +26,19 @@ public class Messaging : MonoBehaviour
     public GameObject emojiButton;
     public GameObject emojiPanel;
     public GameObject emoji1;
-    //public GameObject[] emojiPlacement;
+    public GameObject[] emojiPlacement;
     private SpriteRenderer spriteHolder;
     GameObject a;
     GameObject b;
+    GameObject c;
+    GameObject d;
+    GameObject e;
+    GameObject f;
     public int moreThanTwo = 0;
     public bool emojiSpot1 = false;
     public bool emojiSpot2 = false;
+    public bool spawnedMessage1 = false;
+    public bool spawnedMessage2 = false;
 
     public int characterAdder = 0;
     public float timerForSpawning;
@@ -64,12 +70,27 @@ public class Messaging : MonoBehaviour
    
         public void EmojiButton()
     {
-        
-        b.SetActive(false);
+        if (spawnedMessage1 == true && spawnedMessage2 == false && emojiSpot1 == false)
+        {
+            b.SetActive(false);
+            Instantiate(emojiPanel).transform.position = b.transform.position+new Vector3(-1.5f,0.8f,0f);
+
+        }
+        else if(spawnedMessage1 == true && spawnedMessage2 == true && emojiSpot2 == false)
+        {
+            d.SetActive(false);
+            Instantiate(emojiPanel).transform.position = d.transform.position + new Vector3(-1.5f, 0.8f, 0f);
+
+        }
+        /*else if(spawnedMessage1 == true && spawnedMessage2 == true && emojiSpot1 == true && emojiSpot2 == true)
+        {
+
+        }*/
+        //SetActive(false);
         /*
         emojiPanel.SetActive(true);
         emojiPanel.transform.position -= messageBoblePos - new Vector3(0, 0.05f, 0);*/
-        Instantiate(emojiPanel).transform.position = b.transform.position+new Vector3(-1.5f,0.8f,0f);
+        //Instantiate(emojiPanel).transform.position = this.GetComponent<GameObject>().transform.position+new Vector3(-1.5f,0.8f,0f);
     }
 
     /*public void EmojiPanel()
@@ -124,39 +145,55 @@ public class Messaging : MonoBehaviour
          emojiButton.transform.position = emojiPlacement.transform.position;
          emojiButton.transform.position += messageBoblePos - new Vector3(0.0f, 0.05f, 0f);
          emojiPlacement.transform.position += messageBoblePos - new Vector3(0, 0.05f, 0);*/
-        int moreThanTwo = 0;
-        if (moreThanTwo > 2)
-        { 
-            elementHolderSender[0].transform.position = a.transform.position;
-            elementHolderUser[0].transform.position = b.transform.position;
-            a = Instantiate(sender[Random.Range(0, sender.Length)]);
-            b = Instantiate(user[0]);
-           
+        
+        if (moreThanTwo >= 2)
+        {
+            //elementHolderSender[0].transform.position = a.transform.position;
+            //elementHolderUser[0].transform.position = b.transform.position;
+            a = c;
+            b = d;
+            Destroy(c);
+            Destroy(d);
+            c = Instantiate(sender[Random.Range(0, sender.Length)]);
+            d = Instantiate(user[0]);
+            //emojiSpot2 = false;
+            e = emojiPlacement[0];
+            f = emojiPlacement[1];
+            e = f;
+            emojiSpot2 = false;
             //a = Instantiate(sender[0]);
-            a.transform.position = elementHolderSender[1].transform.position;
-            b.transform.position = elementHolderUser[1].transform.position;
-            moreThanTwo++;
-            StartCoroutine(SpawningTimer());
+            c.transform.position = elementHolderSender[1].transform.position;
+            d.transform.position = elementHolderUser[1].transform.position;
+            
 
         }
-        if(moreThanTwo > 1)
+        if (moreThanTwo == 1)
+        {
+            c = Instantiate(sender[Random.Range(0, sender.Length)]);
+            d = Instantiate(user[0]);
+           
+            //a = Instantiate(sender[0]);
+            c.transform.position = elementHolderSender[1].transform.position;
+            d.transform.position = elementHolderUser[1].transform.position;
+            
+            spawnedMessage2 = true;
+            emojiSpot2 = false;
+            
+            
+        }
+        else if (moreThanTwo == 0)
         {
             a = Instantiate(sender[Random.Range(0, sender.Length)]);
             b = Instantiate(user[0]);
-
-            //a = Instantiate(sender[0]);
-            a.transform.position = elementHolderSender[1].transform.position;
-            b.transform.position = elementHolderUser[1].transform.position;
-            moreThanTwo++;
-            StartCoroutine(SpawningTimer());
+            
+            a.transform.position = elementHolderSender[0].transform.position;
+            b.transform.position = elementHolderUser[0].transform.position;
+          
+            spawnedMessage1 = true;
+            emojiSpot1 = false;
         }
-        a = Instantiate(sender[Random.Range(0, sender.Length)]);
-        b = Instantiate(user[0]);
-        a.transform.position = elementHolderSender[0].transform.position;
-        b.transform.position = elementHolderUser[0].transform.position;
 
-
-        moreThanTwo += 1;
+        moreThanTwo++;
         StartCoroutine(SpawningTimer());
     }
     public IEnumerator SpawningTimer()
