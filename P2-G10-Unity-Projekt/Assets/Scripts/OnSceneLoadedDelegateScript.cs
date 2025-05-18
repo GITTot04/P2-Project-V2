@@ -54,6 +54,7 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 }
                 break;
             case 2:
+                GameObject.Find("Video Player").GetComponent<VideoController>().LoadRandomVideo();
                 if (GameControllerScript.gameController.firstTimeVideoScene)
                 {
                     GameControllerScript.gameController.MessageNotification();
