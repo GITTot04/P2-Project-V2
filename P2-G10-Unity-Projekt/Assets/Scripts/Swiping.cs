@@ -31,19 +31,11 @@ public class Swiping : MonoBehaviour
 
     public void SwipeLeft(int buildIndex)
     {
-        if (GameControllerScript.gameController.canSwipe == true && (buildIndex != 5 && buildIndex != 0))
+        if (GameControllerScript.gameController.canSwipe == true && buildIndex != 5 && buildIndex != 0)
         {
             transform.position = new Vector3(0, 0, 10);
             GameControllerScript.gameController.swipeDirection = true;
-            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
-            if (GameObject.Find("EventSystem") != null)
-            {
-                GameObject.Find("EventSystem").SetActive(false);
-            }
-            if (NotificationManager.Instance != null)
-            {
-                Destroy(NotificationManager.Instance);
-            }
+            RemoveDuplicates();
             SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
             GameControllerScript.gameController.canSwipe = false;
         }
@@ -55,15 +47,7 @@ public class Swiping : MonoBehaviour
         {
             transform.position = new Vector3(0, 0, 10);
             GameControllerScript.gameController.swipeDirection = false;
-            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
-            if (GameObject.Find("EventSystem") != null)
-            {
-                GameObject.Find("EventSystem").SetActive(false);
-            }
-            if (NotificationManager.Instance != null)
-            {
-                Destroy(NotificationManager.Instance);
-            }
+            RemoveDuplicates();
             SceneManager.LoadScene(5, LoadSceneMode.Additive);
             GameControllerScript.gameController.canSwipe = false;
         }
@@ -71,17 +55,22 @@ public class Swiping : MonoBehaviour
         {
             transform.position = new Vector3(0, 0, 10);
             GameControllerScript.gameController.swipeDirection = false;
-            GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
-            if (GameObject.Find("EventSystem") != null)
-            {
-                GameObject.Find("EventSystem").SetActive(false);
-            }
-            if (NotificationManager.Instance != null)
-            {
-                Destroy(NotificationManager.Instance);
-            }
+            RemoveDuplicates();
             SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
             GameControllerScript.gameController.canSwipe = false;
+        }
+    }
+
+    private void RemoveDuplicates()
+    {
+        GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
+        if (GameObject.Find("EventSystem") != null)
+        {
+            GameObject.Find("EventSystem").SetActive(false);
+        }
+        if (NotificationManager.Instance != null)
+        {
+            Destroy(NotificationManager.Instance);
         }
     }
 }
