@@ -678,7 +678,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.10943389, g: 0.10943389, b: 0.10943389, a: 1}
+  m_Color: {r: 0.15471691, g: 0.15471691, b: 0.15471691, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1005,11 +1005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d104f732732ca02438d36f05782d2e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoClips:
-  - {fileID: 32900000, guid: f660d1bbc3c8a4374ae382d7229981a8, type: 3}
-  - {fileID: 32900000, guid: efbfcef7506e74a49bd2e43c6d5c160f, type: 3}
-  - {fileID: 32900000, guid: 3f8e6457af6a2461d87bc215650ad935, type: 3}
-  - {fileID: 32900000, guid: 938394a8310bd4bd5972e8a030470cf7, type: 3}
 --- !u!1 &332264276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,7 +1177,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 45.310886, y: -36.91714}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &341839007
 MonoBehaviour:
@@ -1243,8 +1238,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

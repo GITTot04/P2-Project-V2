@@ -3,16 +3,21 @@ using UnityEngine.Video;
 
 public class VideoController : MonoBehaviour
 {
-    [SerializeField] VideoClip[] videoClips = new VideoClip[4];
+    int amountOfVideoClips = 4;
     int currentVideo;
+    private void Start()
+    {
+        GetComponent<VideoPlayer>().loopPointReached += LoadNextVideo;
+    }
     public void LoadRandomVideo()
     {
-        currentVideo = Random.Range(1, videoClips.Length + 1);
+        currentVideo = Random.Range(1, amountOfVideoClips + 1);
         GetComponent<VideoPlayer>().clip = Resources.Load<VideoClip>("Clips/Clip" + currentVideo);
     }
-    public void LoadNextVideo()
+    
+    public void LoadNextVideo(VideoPlayer videoPlayer)
     {
-        if (currentVideo == 4)
+        if (currentVideo == amountOfVideoClips)
         {
             currentVideo = 1;
         }
@@ -20,6 +25,6 @@ public class VideoController : MonoBehaviour
         {
             currentVideo++;
         }
-        GetComponent<VideoPlayer>().clip = Resources.Load<VideoClip>("Clips/Clip" + currentVideo);
+        videoPlayer.clip = Resources.Load<VideoClip>("Clips/Clip" + currentVideo);
     }
 }
