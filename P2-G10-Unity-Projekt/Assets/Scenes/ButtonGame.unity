@@ -330,7 +330,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.91799796, g: 0.81350124, b: 0.9528302, a: 1}
   m_FlipX: 0
@@ -402,7 +402,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 5810789782057619051, guid: 0531cae0556036c45ae6bcf0767a8d84, type: 3}
   m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 0.1254902}
   m_FlipX: 0
@@ -424,10 +424,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.34123975, y: 0.036901146, z: -0.933969, w: 0.099476725}
   m_LocalPosition: {x: 0.12, y: 5.74, z: -4.39}
-  m_LocalScale: {x: 0.9023712, y: 0.62831086, z: 1}
+  m_LocalScale: {x: 0.90237117, y: 0.62831086, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1785407416}
   m_LocalEulerAnglesHint: {x: 7.864, y: -39.498, z: -170.668}
 --- !u!1 &837477116
 GameObject:
@@ -1748,6 +1748,8 @@ Transform:
   - {fileID: 1810361848}
   - {fileID: 377087169}
   - {fileID: 1211026830}
+  - {fileID: 616901661}
+  - {fileID: 1859419459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1785407417
@@ -1923,7 +1925,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 5810789782057619051, guid: 0531cae0556036c45ae6bcf0767a8d84, type: 3}
   m_Color: {r: 1, g: 0, b: 1, a: 0.28235295}
   m_FlipX: 0
@@ -1943,12 +1945,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859419457}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27027497, y: 0.9236069, z: -0.0768668, w: 0.26075512}
+  m_LocalRotation: {x: 0.270275, y: 0.92360693, z: -0.076866806, w: 0.26075515}
   m_LocalPosition: {x: 0.97, y: 0.25, z: -4.26}
-  m_LocalScale: {x: 0.88191086, y: 0.68604124, z: 1.1187}
+  m_LocalScale: {x: 0.88191056, y: 0.68604124, z: 1.1186997}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1785407416}
   m_LocalEulerAnglesHint: {x: 16.436, y: 152.686, z: 28.603}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1957,5 +1959,3 @@ SceneRoots:
   - {fileID: 1208183483}
   - {fileID: 1785407416}
   - {fileID: 1634372229}
-  - {fileID: 616901661}
-  - {fileID: 1859419459}
