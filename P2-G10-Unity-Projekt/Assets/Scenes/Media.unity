@@ -1263,7 +1263,8 @@ MonoBehaviour:
   characterLengthLimit: 26
   emojiButton: {fileID: 2428109807145064706}
   emojiPanel: {fileID: 837275057}
-  emoji1: {fileID: 611437688}
+  emoji1: {fileID: 0}
+  emoji2: {fileID: 0}
   emojiPlacement:
   - {fileID: 1134848002}
   - {fileID: 171712039}
@@ -1890,7 +1891,7 @@ Transform:
   m_GameObject: {fileID: 1064897946}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.28, y: -2.13, z: -1}
+  m_LocalPosition: {x: -2.01, y: -2.13, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1921,7 +1922,7 @@ Transform:
   m_GameObject: {fileID: 1134848002}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 1.4361, z: -1}
+  m_LocalPosition: {x: -0.63, y: 1.4538, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

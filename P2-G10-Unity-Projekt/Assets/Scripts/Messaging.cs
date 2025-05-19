@@ -26,6 +26,7 @@ public class Messaging : MonoBehaviour
     public GameObject emojiButton;
     public GameObject emojiPanel;
     public GameObject emoji1;
+    public GameObject emoji2;
     public GameObject[] emojiPlacement;
     private SpriteRenderer spriteHolder;
     GameObject a;
@@ -54,6 +55,8 @@ public class Messaging : MonoBehaviour
     public void Awake()
     {
         StartCoroutine(SpawningTimer());
+        emojiSpot1 = false;
+        emojiSpot2 = false;
         
     }
     public void Start()
@@ -150,17 +153,19 @@ public class Messaging : MonoBehaviour
         {
             //elementHolderSender[0].transform.position = a.transform.position;
             //elementHolderUser[0].transform.position = b.transform.position;
+            emojiSpot2 = false;
             a = c;
             b = d;
             Destroy(c);
             Destroy(d);
             c = Instantiate(sender[Random.Range(0, sender.Length)]);
             d = Instantiate(user[0]);
+
             //emojiSpot2 = false;
-            e = emojiPlacement[0];
-            f = emojiPlacement[1];
-            e = f;
-            emojiSpot2 = false;
+
+            
+            
+            
             //a = Instantiate(sender[0]);
             c.transform.position = elementHolderSender[1].transform.position;
             d.transform.position = elementHolderUser[1].transform.position;
@@ -177,7 +182,7 @@ public class Messaging : MonoBehaviour
             d.transform.position = elementHolderUser[1].transform.position;
             
             spawnedMessage2 = true;
-            emojiSpot2 = false;
+            
             
             
         }
@@ -188,9 +193,9 @@ public class Messaging : MonoBehaviour
             
             a.transform.position = elementHolderSender[0].transform.position;
             b.transform.position = elementHolderUser[0].transform.position;
-          
+            
             spawnedMessage1 = true;
-            emojiSpot1 = false;
+            
         }
 
         moreThanTwo++;
