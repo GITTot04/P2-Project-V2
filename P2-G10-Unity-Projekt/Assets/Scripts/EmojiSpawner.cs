@@ -9,7 +9,8 @@ public class EmojiSpawner : MonoBehaviour
     public Messaging messagingScript;
     public Transform emojiPanelT;
     public Vector3 originalScaling;
-    public Vector3 scaling;
+    public Vector3 scaling = new Vector3(0,0,-3);
+    public int emojiID;
     GameObject a;
     GameObject b;
 
@@ -35,9 +36,14 @@ public class EmojiSpawner : MonoBehaviour
         spriteRend.transform.SetParent(emojiPlacement.transform, false);
         spriteRend.transform.SetParent(null);*/
         spriteRend.transform.localScale = scaling;
+        if(GameControllerScript.gameController.spawnedMessageAmount == messagingScript.amountMatch && GameControllerScript.gameController.spawnedMessageAmount < 5 )
+        {
+            Instantiate(spriteRend, messagingScript.emojiPlacement[messagingScript.amountMatch - 1].transform.position, messagingScript.emojiPlacement[messagingScript.amountMatch - 1].transform.rotation);
+        }
+        /*
         if(messagingScript.emojiSpot1 == false && messagingScript.spawnedMessage1 == true)
         {
-          a = Instantiate(spriteRend, messagingScript.emojiPlacement[0].transform.position, messagingScript.emojiPlacement[0].transform.rotation);
+          a = Instantiate(spriteRend, messagingScript.emojiPlacement[messagingScript.amountMatch].transform.position, messagingScript.emojiPlacement[messagingScript.amountMatch].transform.rotation);
             messagingScript.emoji1 = a;
             messagingScript.emoji1.transform.position = messagingScript.emojiPlacement[0].transform.position;
 
@@ -64,6 +70,6 @@ public class EmojiSpawner : MonoBehaviour
             //b.transform.position = messagingScript.emojiPlacement[1].transform.position;
 
         }
-        
+        */
     }
 }

@@ -38,6 +38,7 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.buttonNotificationReady = false;
                 GameControllerScript.gameController.messageNotificationReady = false;
                 GameControllerScript.gameController.messageNotificationCooldown = 20;
+                
                 break;
             case 1:
                 if (grayscale == null)
@@ -61,12 +62,22 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 }
                 break;
             case 3:
+                
+                GameObject messages = GameObject.Find("Messaging");
                 if (GameControllerScript.gameController.firstTimeMessageScene)
                 {
                     GameControllerScript.gameController.ButtonNotification();
                     GameControllerScript.gameController.firstTimeMessageScene = false;
+                    
+
+                    
                 }
                 GameControllerScript.gameController.messageNotificationReady = true;
+
+                for (int i = 0; i < GameControllerScript.gameController.spawnedMessageAmount; i++)
+                {
+                   messages.GetComponent<Messaging>().MessageFrom();
+                }
                 break;
             case 4:
                 if (GameControllerScript.gameController.buttonGameCooldown >= 10)
