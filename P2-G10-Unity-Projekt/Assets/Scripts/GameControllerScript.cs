@@ -124,13 +124,16 @@ public class GameControllerScript : MonoBehaviour
             {
                 messageNotificationReady = false;
                 messageNotificationCooldown = 20;
+                
                 MessageNotification();
-                if(SceneManager.GetActiveScene().buildIndex == 3)
-                {
-                    GameObject mes = GameObject.Find("Messaging");
-                    mes.GetComponent<Messaging>().MessageFrom();
-                }
+                
             }
+            /*if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                GameObject mes = GameObject.Find("Messaging");
+                mes.GetComponent<Messaging>().MessageFrom();
+            }*/
+
         }
     }
     void OutOfTime()

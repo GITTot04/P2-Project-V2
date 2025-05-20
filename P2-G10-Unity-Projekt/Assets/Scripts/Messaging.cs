@@ -10,8 +10,8 @@ using System.Collections;
 
 public class Messaging : MonoBehaviour
 {
-    
-    
+
+
     //public EmojiSpawner emojiSpawnerScript;
     public Sprite profilePic;
     public GameObject messageBoble;
@@ -33,6 +33,7 @@ public class Messaging : MonoBehaviour
     public GameObject[] emojiPlacement;
     public int buttonID;
     private SpriteRenderer spriteHolder;
+    GameObject[] loosing;
     GameObject a;
     GameObject b;
     GameObject c;
@@ -47,7 +48,7 @@ public class Messaging : MonoBehaviour
     public int amountMatch = 0;
     public int characterAdder = 0;
     public float timerForSpawning;
-   
+
     bool firstMessage = true;
 
     private SpriteRenderer spriteRendererMessageBoble;
@@ -60,41 +61,49 @@ public class Messaging : MonoBehaviour
     //public GameObject[] emoMe;
     public void Awake()
     {
-        StartCoroutine(SpawningTimer());
+        MessageFrom();
         emojiSpot1 = false;
         emojiSpot2 = false;
-        amountMatch = GameControllerScript.gameController.spawnedMessageAmount;
+        //amountMatch = GameControllerScript.gameController.spawnedMessageAmount;
+
+
+
+
+
 
     }
     public void Start()
     {
-        
-       
+
+
 
     }
     public void Update()
     {
-         //StartCoroutine(SpawningTimer());
-        
+        //StartCoroutine(SpawningTimer());
+
     }
-   
-        public void EmojiButton()
+
+    public void EmojiButton()
     {
+        if(spawnedMessage1 == true &&  emojiSpot1 == false)
         {
-            a.SetActive(false);
-            Instantiate(emojiPanel).transform.position = emojiPlacement[amountMatch].transform.position - new Vector3(1.5f,0.5f,3);
+            b.SetActive(false);
+            Instantiate(emojiPanel).transform.position = emojiPlacement[0].transform.position - new Vector3(1.5f, 0.5f, 3);
 
         }
-        /*else if(spawnedMessage1 == true && spawnedMessage2 == true && emojiSpot1 == true && emojiSpot2 == true)
+        else if (spawnedMessage1 == true && spawnedMessage2 == true && emojiSpot1 == true && emojiSpot2 == true)
         {
-
-        }*/
+            d.SetActive(false);
+            Instantiate(emojiPanel).transform.position = emojiPlacement[1].transform.position - new Vector3(1.5f, 0.5f, 3);
+        }
         //SetActive(false);
         /*
         emojiPanel.SetActive(true);
         emojiPanel.transform.position -= messageBoblePos - new Vector3(0, 0.05f, 0);*/
         //Instantiate(emojiPanel).transform.position = this.GetComponent<GameObject>().transform.position+new Vector3(-1.5f,0.8f,0f);
     }
+
 
     /*public void EmojiPanel()
     {  emojiPanel.SetActive(false);
@@ -118,7 +127,7 @@ public class Messaging : MonoBehaviour
 
 
 
-        /*spriteRendererMessageBoble = messageBoble.GetComponent<SpriteRenderer>();
+        spriteRendererMessageBoble = messageBoble.GetComponent<SpriteRenderer>();
         spriteRendererMessageBoble.drawMode = SpriteDrawMode.Sliced;
         rb = messageBoble.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
@@ -141,37 +150,46 @@ public class Messaging : MonoBehaviour
             TextHolder.transform.position = textPos;
         }
         charLenHolder = 0;
-        */
+        
         /* Instantiate(emojiButton).SetActive(true);
          Instantiate(emojiPanel).SetActive(false);
          Instantiate(emoji1).SetActive(false);
          emojiButton.transform.position = emojiPlacement.transform.position;
          emojiButton.transform.position += messageBoblePos - new Vector3(0.0f, 0.05f, 0f);
          emojiPlacement.transform.position += messageBoblePos - new Vector3(0, 0.05f, 0);*/
-        
-        if (spawnedMessageAmount == amountMatch && spawnedMessageAmount <= 5)
+        /*for (int i = 0; i < GameControllerScript.gameController.spawnedMessageAmount; i++)
         {
+            Instantiate(sender[Random.Range(0, sender.Length)], elementHolderSender[amountMatch].transform.position, elementHolderSender[amountMatch].transform.rotation);
+            a = Instantiate(emojiButton, emojiPlacement[amountMatch].transform.position, emojiPlacement[amountMatch].transform.rotation);
+            
+            amountMatch++;
+        }*/
+        /*if (GameControllerScript.gameController.spawnedMessageAmount == amountMatch && GameControllerScript.gameController.spawnedMessageAmount <= 5)
+        {
+
             Instantiate(sender[Random.Range(0, sender.Length)], elementHolderSender[amountMatch].transform.position, elementHolderSender[amountMatch].transform.rotation);
             a = Instantiate(emojiButton, emojiPlacement[amountMatch].transform.position, emojiPlacement[amountMatch].transform.rotation);
             GameControllerScript.gameController.spawnedMessageAmount++;
             amountMatch++;
-           
+
 
         }
-        else if (spawnedMessageAmount > 5)
+        else if (GameControllerScript.gameController.spawnedMessageAmount > 5)
         {
+            amountMatch--;
             Instantiate(emojiPlacement[amountMatch]);
             Instantiate(elementHolderSender[amountMatch]);
             Destroy(emojiPlacement[0]);
             Destroy(elementHolderSender[0]);
-            emojiPlacement[amountMatch].transform.position = emojiPlacement[amountMatch-1].transform.position;
-            elementHolderSender[amountMatch].transform.position = elementHolderSender[amountMatch - 1].transform.position;
-            
+            emojiPlacement[amountMatch].transform.position = emojiPlacement[amountMatch].transform.position;
+            elementHolderSender[amountMatch].transform.position = elementHolderSender[amountMatch].transform.position;
+            GameControllerScript.gameController.spawnedMessageAmount--;
 
         }
+        */
         //StartCoroutine(SpawningTimer());
 
-        /*
+        
         if (spawnedMessageAmount == 2)
         {
             //elementHolderSender[0].transform.position = a.transform.position;
@@ -194,13 +212,13 @@ public class Messaging : MonoBehaviour
             d.transform.position = elementHolderUser[1].transform.position;
             
             
-        }/*
+        }
         if (spawnedMessageAmount == 1)
         {
-            Instantiate(sender[Random.Range(0, sender.Length)]);
-            Instantiate(user[0]);
+           a= Instantiate(sender[Random.Range(0, sender.Length)]);
+            b= Instantiate(user[0]);
            
-            a = Instantiate(sender[0]);
+            //a = Instantiate(sender[0]);
             c.transform.position = elementHolderSender[1].transform.position;
             d.transform.position = elementHolderUser[1].transform.position;
             
@@ -211,8 +229,8 @@ public class Messaging : MonoBehaviour
         }
         else if (spawnedMessageAmount == 0)
         {
-            Instantiate(sender[Random.Range(0, sender.Length)]);
-            Instantiate(user[0]);
+           a = Instantiate(sender[Random.Range(0, sender.Length)]);
+            b = Instantiate(user[0]);
             
             a.transform.position = elementHolderSender[0].transform.position;
             b.transform.position = elementHolderUser[0].transform.position;
@@ -220,7 +238,7 @@ public class Messaging : MonoBehaviour
             spawnedMessage1 = true;
             
         }
-        */
+        
 
 
     }
