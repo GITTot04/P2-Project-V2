@@ -5,6 +5,7 @@ using TMPro;
 public class GameControllerScript : MonoBehaviour
 {
     public static GameControllerScript gameController;
+    public static Messaging messagingScript;
     public bool swipeDirection;
     public bool canSwipe = true;
     public bool firstTimeInfoScreen = true;
@@ -38,7 +39,8 @@ public class GameControllerScript : MonoBehaviour
     public bool messageNotificationReady = false;
     public float messageNotificationCooldown = 20;
     public bool doNotSwipe;
-
+    public int spawnedMessageAmount = 0;
+    public bool firstMessage = true;
     private void Awake()
     {
         if (gameController != null)
@@ -122,8 +124,16 @@ public class GameControllerScript : MonoBehaviour
             {
                 messageNotificationReady = false;
                 messageNotificationCooldown = 20;
+                
                 MessageNotification();
+                
             }
+            /*if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                GameObject mes = GameObject.Find("Messaging");
+                mes.GetComponent<Messaging>().MessageFrom();
+            }*/
+
         }
     }
     void OutOfTime()

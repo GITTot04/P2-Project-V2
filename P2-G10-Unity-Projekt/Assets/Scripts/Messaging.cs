@@ -10,9 +10,16 @@ using System.Collections;
 
 public class Messaging : MonoBehaviour
 {
+
+
+    //public EmojiSpawner emojiSpawnerScript;
     public Sprite profilePic;
-    public GameObject/*[]*/ messageBoble;
+    public GameObject messageBoble;
     public GameObject TextHolder;
+    public GameObject[] sender;
+    public GameObject[] user;
+    public GameObject[] elementHolderSender;
+    public GameObject[] elementHolderUser;
     public TextMeshPro messageText;
     private string textString;
     //public GameObject boble;
@@ -22,16 +29,27 @@ public class Messaging : MonoBehaviour
     public GameObject emojiButton;
     public GameObject emojiPanel;
     public GameObject emoji1;
-    public GameObject emojiPlacement;
+    public GameObject emoji2;
+    public GameObject[] emojiPlacement;
+    public int buttonID;
     private SpriteRenderer spriteHolder;
-    // The offset of the sprite to hide it.
-    private Vector2 startPosition = new Vector2(0f,0f);
-    private Vector2 endPosition = Vector2.zero;
-    // How long it takes to show a mole.
-    private float showDuration = 0.5f;
-    private float duration = 1f;
-
+    GameObject[] loosing;
+    GameObject a;
+    GameObject b;
+    GameObject c;
+    GameObject d;
+    GameObject e;
+    GameObject f;
+    public int spawnedMessageAmount = 0;
+    public bool emojiSpot1 = false;
+    public bool emojiSpot2 = false;
+    public bool spawnedMessage1 = false;
+    public bool spawnedMessage2 = false;
+    public int amountMatch = 0;
     public int characterAdder = 0;
+    public float timerForSpawning;
+
+    bool firstMessage = true;
 
     private SpriteRenderer spriteRendererMessageBoble;
     [SerializeField] private Vector2 messageBobleSize;// = new Vector2(0f, 0.8f);
@@ -39,97 +57,53 @@ public class Messaging : MonoBehaviour
     [SerializeField] private Vector3 textPos;//= new Vector3(0.3f, -0.5f, 0f);
     private Rigidbody2D rb;
     private Animator animator;
-    private BoxCollider2D boxCollider2D;
-    private Vector2 boxOffset;
-    private Vector2 boxSize;
-    private Vector2 boxOffsetHidden;
-    private Vector2 boxSizeHidden;
-    public Vector3 scaleChanger;
     //public EmojiSpawner emojiSpawnerScript;
     //public GameObject[] emoMe;
     public void Awake()
     {
-        spriteRendererMessageBoble = messageBoble.GetComponent<SpriteRenderer>();
-        spriteRendererMessageBoble.drawMode = SpriteDrawMode.Sliced;
-        rb = messageBoble.GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Kinematic;
-        
+        MessageFrom();
+        emojiSpot1 = false;
+        emojiSpot2 = false;
+        //amountMatch = GameControllerScript.gameController.spawnedMessageAmount;
+
+
+
+
+
+
     }
     public void Start()
     {
-        
-        //messageBoble.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Dancing knuckle gif funny deez nuts");
-        messageBoble.gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
-        randomNumber = Random.Range(0, messages.Length);
-        //messages = new string[randomNumber];
-        messageText.text = messages[randomNumber];
-        textString = messageText.text;
-        //boble = messageBoble[randomNumber];
-        /*
-        //ShowHide(scaleChanger, endPosition);
-        boxCollider2D = messageBoble.GetComponent<BoxCollider2D>();
-            // Work out collider values.
-        boxOffset = boxCollider2D.offset;
-        boxSize = boxCollider2D.size;
-        boxOffsetHidden = new Vector2(boxOffset.x, -startPosition.y / 2f);
-        boxSizeHidden = new Vector2(boxSize.x, 0f);
-        */
-        
-        int charLenHolder = characterLengthLimit;
-         while(textString.Length >= characterLengthLimit + characterAdder)
-        {
-            spriteRendererMessageBoble.size += messageBobleSize;
-            messageBoble.transform.position += messageBoblePos;
-            messageText.transform.position += textPos;
-            Debug.Log("Sprite size: " + spriteRendererMessageBoble.size.ToString("F2"));
-            characterAdder += charLenHolder; 
 
-        }
-        emojiButton.SetActive(true);
-        emojiPanel.SetActive(false);
-        emoji1.SetActive(false);
-        emojiButton.transform.position += messageBoblePos - new Vector3(0.0f, 0.03f, 0f);
-        emojiPlacement.transform.position += messageBoblePos - new Vector3(0, 0.04f, 0);
+
+
     }
     public void Update()
     {
-        TextHolder.transform.position = textPos; //messageBoble.transform.TransformVector(textPos); 
-        
+        //StartCoroutine(SpawningTimer());
+
     }
-    /*private IEnumerator ShowHide(Vector2 start, Vector2 end)
+
+    public void EmojiButton()
     {
-        // Make sure we start at the start.
-        transform.localPosition = start;
+        if(spawnedMessage1 == true &&  emojiSpot1 == false)
+        {
+            b.SetActive(false);
+            Instantiate(emojiPanel).transform.position = emojiPlacement[0].transform.position - new Vector3(1.5f, 0.5f, 3);
 
-        // Show the mole.
-        float elapsed = 0f;
-        //while (elapsed < showDuration)
-        //{
-            transform.localPosition = Vector2.Lerp(start, end, elapsed / showDuration);
-            scaleChanger = transform.localScale = new Vector3(0f, 3f, 0f);
-            boxCollider2D.offset = Vector2.Lerp(boxOffsetHidden, boxOffset, elapsed / showDuration);
-            boxCollider2D.size = Vector2.Lerp(boxSizeHidden, boxSize, elapsed / showDuration);
-            messageBoble.transform.localScale += scaleChanger;
-            // Update at max framerate.
-            elapsed += Time.deltaTime;
-            yield return null;
-       // }
-
-        // Make sure we're exactly at the end.
-        transform.localPosition = end;
-        boxCollider2D.offset = boxOffset;
-        boxCollider2D.size = boxSize;
-
-        // Wait for duration to pass.
-        yield return new WaitForSeconds(duration);
-    }*/
-        public void EmojiButton()
-    {
-        
-        emojiButton.SetActive(false);
+        }
+        else if (spawnedMessage1 == true && spawnedMessage2 == true && emojiSpot1 == true && emojiSpot2 == true)
+        {
+            d.SetActive(false);
+            Instantiate(emojiPanel).transform.position = emojiPlacement[1].transform.position - new Vector3(1.5f, 0.5f, 3);
+        }
+        //SetActive(false);
+        /*
         emojiPanel.SetActive(true);
-        emojiPanel.transform.position += messageBoblePos - new Vector3(0, 0.02f, 0);
+        emojiPanel.transform.position -= messageBoblePos - new Vector3(0, 0.05f, 0);*/
+        //Instantiate(emojiPanel).transform.position = this.GetComponent<GameObject>().transform.position+new Vector3(-1.5f,0.8f,0f);
     }
+
 
     /*public void EmojiPanel()
     {  emojiPanel.SetActive(false);
@@ -143,7 +117,151 @@ public class Messaging : MonoBehaviour
     {
         if(collision.gameObject == true)
         {
-            new Vector3(0.01f, 0.01f, 0f);
+            new Vector3(0f, 0.01f, 0f);
         }
+    }
+    public void MessageFrom()
+    {
+        //Instantiate(emojiButton);
+        //emojiButton.transform.position = emojiPlacement[0].transform.position;
+
+
+
+        spriteRendererMessageBoble = messageBoble.GetComponent<SpriteRenderer>();
+        spriteRendererMessageBoble.drawMode = SpriteDrawMode.Sliced;
+        rb = messageBoble.GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Kinematic;
+
+
+        messageBoble.gameObject.transform.Translate(0.0f, 0.0f, 0.0f);
+        randomNumber = Random.Range(0, messages.Length);
+        //messages = new string[randomNumber];
+        messageText.text = messages[randomNumber];
+        textString = messageText.text;
+
+        int charLenHolder = characterLengthLimit;
+        while (textString.Length >= characterLengthLimit + characterAdder)
+        {
+            spriteRendererMessageBoble.size += messageBobleSize;
+            messageBoble.transform.position += messageBoblePos;
+            messageText.transform.position += textPos;
+            Debug.Log("Sprite size: " + spriteRendererMessageBoble.size.ToString("F2"));
+            characterAdder += charLenHolder;
+            TextHolder.transform.position = textPos;
+        }
+        charLenHolder = 0;
+        
+        /* Instantiate(emojiButton).SetActive(true);
+         Instantiate(emojiPanel).SetActive(false);
+         Instantiate(emoji1).SetActive(false);
+         emojiButton.transform.position = emojiPlacement.transform.position;
+         emojiButton.transform.position += messageBoblePos - new Vector3(0.0f, 0.05f, 0f);
+         emojiPlacement.transform.position += messageBoblePos - new Vector3(0, 0.05f, 0);*/
+        /*for (int i = 0; i < GameControllerScript.gameController.spawnedMessageAmount; i++)
+        {
+            Instantiate(sender[Random.Range(0, sender.Length)], elementHolderSender[amountMatch].transform.position, elementHolderSender[amountMatch].transform.rotation);
+            a = Instantiate(emojiButton, emojiPlacement[amountMatch].transform.position, emojiPlacement[amountMatch].transform.rotation);
+            
+            amountMatch++;
+        }*/
+        /*if (GameControllerScript.gameController.spawnedMessageAmount == amountMatch && GameControllerScript.gameController.spawnedMessageAmount <= 5)
+        {
+
+            Instantiate(sender[Random.Range(0, sender.Length)], elementHolderSender[amountMatch].transform.position, elementHolderSender[amountMatch].transform.rotation);
+            a = Instantiate(emojiButton, emojiPlacement[amountMatch].transform.position, emojiPlacement[amountMatch].transform.rotation);
+            GameControllerScript.gameController.spawnedMessageAmount++;
+            amountMatch++;
+
+
+        }
+        else if (GameControllerScript.gameController.spawnedMessageAmount > 5)
+        {
+            amountMatch--;
+            Instantiate(emojiPlacement[amountMatch]);
+            Instantiate(elementHolderSender[amountMatch]);
+            Destroy(emojiPlacement[0]);
+            Destroy(elementHolderSender[0]);
+            emojiPlacement[amountMatch].transform.position = emojiPlacement[amountMatch].transform.position;
+            elementHolderSender[amountMatch].transform.position = elementHolderSender[amountMatch].transform.position;
+            GameControllerScript.gameController.spawnedMessageAmount--;
+
+        }
+        */
+        //StartCoroutine(SpawningTimer());
+
+        
+        if (spawnedMessageAmount == 2)
+        {
+            //elementHolderSender[0].transform.position = a.transform.position;
+            //elementHolderUser[0].transform.position = b.transform.position;
+            emojiSpot2 = false;
+            a = c;
+            b = d;
+            Destroy(c);
+            Destroy(d);
+            c = Instantiate(sender[Random.Range(0, sender.Length)]);
+            d = Instantiate(user[0]);
+
+            //emojiSpot2 = false;
+
+            
+            
+            
+            //a = Instantiate(sender[0]);
+            c.transform.position = elementHolderSender[1].transform.position;
+            d.transform.position = elementHolderUser[1].transform.position;
+            
+            
+        }
+        if (spawnedMessageAmount == 1)
+        {
+           a= Instantiate(sender[Random.Range(0, sender.Length)]);
+            b= Instantiate(user[0]);
+           
+            //a = Instantiate(sender[0]);
+            c.transform.position = elementHolderSender[1].transform.position;
+            d.transform.position = elementHolderUser[1].transform.position;
+            
+            spawnedMessage2 = true;
+            
+            
+            
+        }
+        else if (spawnedMessageAmount == 0)
+        {
+           a = Instantiate(sender[Random.Range(0, sender.Length)]);
+            b = Instantiate(user[0]);
+            
+            a.transform.position = elementHolderSender[0].transform.position;
+            b.transform.position = elementHolderUser[0].transform.position;
+            
+            spawnedMessage1 = true;
+            
+        }
+        
+
+
+    }
+    public IEnumerator SpawningTimer()
+    {
+        float timer = GameControllerScript.gameController.messageNotificationCooldown;
+        if (GameControllerScript.gameController.firstMessage == true)
+        {
+            MessageFrom();
+            GameControllerScript.gameController.firstMessage = false;
+            
+            
+        }
+       
+        
+        while (GameControllerScript.gameController.messageNotificationCooldown > 0)
+        {
+            
+            
+            yield return null;
+        }
+        GameControllerScript.gameController.messageNotificationCooldown = timer;
+        MessageFrom();
+        
     }
 }
