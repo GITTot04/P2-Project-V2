@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -23,7 +24,9 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.timer10Seconds = 0;
                 GameControllerScript.gameController.timerSeconds = 0;
                 GameControllerScript.gameController.time = "12:00";
-                GameControllerScript.gameController.firstTimeInfoScreen = true;
+                GameControllerScript.gameController.firstTimeInfoScene = true;
+                GameControllerScript.gameController.firstTimeVideoScene = true;
+                GameControllerScript.gameController.firstTimeMessageScene = true;
                 GameControllerScript.gameController.chosenAnswer1 = 0;
                 GameControllerScript.gameController.chosenAnswer2 = 0;
                 GameControllerScript.gameController.chosenAnswer3 = 0;
@@ -37,8 +40,12 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 GameControllerScript.gameController.previousScene = 0;
                 GameControllerScript.gameController.buttonNotificationReady = false;
                 GameControllerScript.gameController.messageNotificationReady = false;
-                GameControllerScript.gameController.messageNotificationCooldown = 20;
-                
+                GameControllerScript.gameController.messageNotificationCooldown = 25;
+                GameControllerScript.gameController.amountOfMessagesReceived = 0;
+                GameControllerScript.gameController.doNotSwipe = false;
+                GameControllerScript.gameController.canSwipe = true;
+
+
                 break;
             case 1:
                 if (grayscale == null)
@@ -51,7 +58,7 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 {
                     GameControllerScript.gameController.FirstTimeNotification();
                     grayscale.SetActive(true);
-                    GameControllerScript.gameController.firstTimeInfoScene = false;
+                    //GameControllerScript.gameController.firstTimeInfoScreen = false;
                 }
                 break;
             case 2:
@@ -63,22 +70,17 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 }
                 break;
             case 3:
-                
-               // GameObject messages = GameObject.Find("Messaging");
                 if (GameControllerScript.gameController.firstTimeMessageScene)
                 {
                     GameControllerScript.gameController.ButtonNotification();
                     GameControllerScript.gameController.firstTimeMessageScene = false;
-                    
-
-                    
                 }
-                
-
-                
-                   //messages.GetComponent<Messaging>().MessageFrom();
-                
                 GameControllerScript.gameController.messageNotificationReady = true;
+                for (int i = 0; i <= GameControllerScript.gameController.amountOfMessagesReceived; i++)
+                {
+                    MessageController.messageController.ActivateMessage(i);
+                    MessageController.messageController.messages[i].transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = GameControllerScript.gameController.messageReactions[i];
+                }
                 break;
             case 4:
                 if (GameControllerScript.gameController.buttonGameCooldown >= 10)

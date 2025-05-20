@@ -5,10 +5,9 @@ using TMPro;
 public class GameControllerScript : MonoBehaviour
 {
     public static GameControllerScript gameController;
-    public static Messaging messagingScript;
     public bool swipeDirection;
     public bool canSwipe = true;
-    public bool firstTimeInfoScreen = true;
+    public bool firstTimeInfoScene = true;
     public bool timerActive = false;
     public int timerMinutes = 12;
     public int timer10Seconds;
@@ -30,17 +29,16 @@ public class GameControllerScript : MonoBehaviour
     public int buttonGamePoints;
     public float buttonGameCooldown;
     public int buttonGameSceneIndex = 4;
-    public bool firstTimeInfoScene = true;
     public bool firstTimeVideoScene = true;
     public bool firstTimeMessageScene = true;
     public bool skipInfoScreen = false;
     public int previousScene;
     public bool buttonNotificationReady = false;
     public bool messageNotificationReady = false;
-    public float messageNotificationCooldown = 20;
+    public float messageNotificationCooldown = 25;
     public bool doNotSwipe;
-    public int spawnedMessageAmount = 0;
-    public bool firstMessage = true;
+    public Sprite[] messageReactions = new Sprite[6];
+    public int amountOfMessagesReceived;
     private void Awake()
     {
         if (gameController != null)
@@ -111,7 +109,7 @@ public class GameControllerScript : MonoBehaviour
                 GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:0" + (int)buttonGameCooldown;
             }
 
-            if (messageNotificationReady)
+            if (messageNotificationReady && amountOfMessagesReceived < 5)
             {
                 messageNotificationCooldown -= Time.deltaTime;
             }
@@ -122,18 +120,20 @@ public class GameControllerScript : MonoBehaviour
             }
             if (messageNotificationCooldown < 0 && messageNotificationReady == true && NotificationManager.Instance != null)
             {
-                messageNotificationReady = false;
-                messageNotificationCooldown = 20;
-                
-                MessageNotification();
-                
+                if (amountOfMessagesReceived < 5)
+                {
+                    messageNotificationCooldown = 25;
+                    amountOfMessagesReceived++;
+                    if (previousScene == 3)
+                    {
+                        MessageController.messageController.ActivateMessage(amountOfMessagesReceived);
+                    }
+                    else
+                    {
+                        MessageNotification();
+                    }
+                }
             }
-            /*if (SceneManager.GetActiveScene().buildIndex == 3)
-            {
-                GameObject mes = GameObject.Find("Messaging");
-                mes.GetComponent<Messaging>().MessageFrom();
-            }*/
-
         }
     }
     void OutOfTime()
@@ -144,15 +144,14 @@ public class GameControllerScript : MonoBehaviour
     public void FirstTimeNotification()
     {
         NotificationManager.Instance.SetNewNotification("Se denne seje video!", 2);
+        firstTimeInfoScene = false;
     }
     public void MessageNotification()
     {
         NotificationManager.Instance.SetNewNotification("Se denne nye besked!", 3);
-        messageNotificationReady = false;
     }
     public void ButtonNotification()
     {
         NotificationManager.Instance.SetNewNotification("Du kan få et point!", 4);
-        buttonNotificationReady = false;
     }
 }

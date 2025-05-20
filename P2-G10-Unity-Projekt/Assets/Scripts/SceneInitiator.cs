@@ -11,7 +11,7 @@ public class SceneInitiator : MonoBehaviour
     int currentActiveSceneIndex;
     private void Awake()
     {
-        if (!GameControllerScript.gameController.firstTimeInfoScreen)
+        if (!GameControllerScript.gameController.firstTimeInfoScene)
         {
             if ((GameControllerScript.gameController.skipInfoScreen == true && SceneManager.GetActiveScene().buildIndex == 5 && (GameControllerScript.gameController.previousScene == 1 || GameControllerScript.gameController.previousScene == 2)) || GameControllerScript.gameController.doNotSwipe == true)
             {
@@ -26,7 +26,7 @@ public class SceneInitiator : MonoBehaviour
         }
         else
         {
-            GameControllerScript.gameController.firstTimeInfoScreen = false;
+            //GameControllerScript.gameController.firstTimeInfoScreen = false;
         }
         startPos = transform.position;
         currentPos = startPos;

@@ -32,8 +32,8 @@ public class Messaging : MonoBehaviour
     public GameObject emoji2;
     public GameObject[] emojiPlacement;
     public int buttonID;
-    private SpriteRenderer spriteHolder;
-    GameObject[] loosing;
+    /* SpriteRenderer spriteHolder;
+    GameObject[] loosing;*/
     GameObject a;
     GameObject b;
     GameObject c;
@@ -49,7 +49,7 @@ public class Messaging : MonoBehaviour
     public int characterAdder = 0;
     public float timerForSpawning;
 
-    bool firstMessage = true;
+   // bool firstMessage = true;
 
     private SpriteRenderer spriteRendererMessageBoble;
     [SerializeField] private Vector2 messageBobleSize;// = new Vector2(0f, 0.8f);
@@ -245,13 +245,13 @@ public class Messaging : MonoBehaviour
     public IEnumerator SpawningTimer()
     {
         float timer = GameControllerScript.gameController.messageNotificationCooldown;
-        if (GameControllerScript.gameController.firstMessage == true)
+        /*if (GameControllerScript.gameController.firstMessage == true)
         {
             MessageFrom();
             GameControllerScript.gameController.firstMessage = false;
             
             
-        }
+        }*/
        
         
         while (GameControllerScript.gameController.messageNotificationCooldown > 0)

@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadMathScene(int buildIndex) 
     {
         GameControllerScript.gameController.skipInfoScreen = true;
+        GameControllerScript.gameController.canSwipe = true;
         SceneManager.LoadScene(buildIndex);
     }
     

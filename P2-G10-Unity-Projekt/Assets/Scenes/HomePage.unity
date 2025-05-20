@@ -284,6 +284,14 @@ MonoBehaviour:
   messageNotificationReady: 0
   messageNotificationCooldown: 20
   doNotSwipe: 0
+  messageReactions:
+  - {fileID: 6813831671552618717, guid: eea2147c7a2eaa148bff354d6e7d5749, type: 3}
+  - {fileID: 6813831671552618717, guid: eea2147c7a2eaa148bff354d6e7d5749, type: 3}
+  - {fileID: 6813831671552618717, guid: eea2147c7a2eaa148bff354d6e7d5749, type: 3}
+  - {fileID: 6813831671552618717, guid: eea2147c7a2eaa148bff354d6e7d5749, type: 3}
+  - {fileID: 6813831671552618717, guid: eea2147c7a2eaa148bff354d6e7d5749, type: 3}
+  - {fileID: 6813831671552618717, guid: eea2147c7a2eaa148bff354d6e7d5749, type: 3}
+  amountOfMessagesReceived: 0
 --- !u!114 &115506493
 MonoBehaviour:
   m_ObjectHideFlags: 0
