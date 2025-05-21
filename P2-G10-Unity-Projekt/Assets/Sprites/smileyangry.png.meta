@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      smileyangry_0: -8099562327727934658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -83,6 +83,7 @@ public class OnSceneLoadedDelegateScript : MonoBehaviour
                 }
                 break;
             case 4:
+                GameControllerScript.gameController.buttonNotificationReady = true;
                 if (GameControllerScript.gameController.buttonGameCooldown >= 10)
                 {
                     GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:" + (int)GameControllerScript.gameController.buttonGameCooldown;

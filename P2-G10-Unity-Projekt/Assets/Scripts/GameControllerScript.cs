@@ -104,7 +104,7 @@ public class GameControllerScript : MonoBehaviour
                     GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:0" + (int)buttonGameCooldown;
                 }
             }
-            else if (buttonGameCooldown < 0 && SceneManager.GetActiveScene().buildIndex == buttonGameSceneIndex && GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text != "00:00")
+            else if (SceneManager.GetActiveScene().buildIndex == buttonGameSceneIndex && GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text != "00:00")
             {
                 GameObject.Find("ButtonCooldownText").GetComponent<TextMeshProUGUI>().text = "00:0" + (int)buttonGameCooldown;
             }
@@ -114,11 +114,14 @@ public class GameControllerScript : MonoBehaviour
                 messageNotificationCooldown -= Time.deltaTime;
             }
 
-            if (buttonGameCooldown < 0 && buttonNotificationReady == true && NotificationManager.Instance != null)
+            if (buttonGameCooldown <= 0 && buttonNotificationReady == true && NotificationManager.Instance != null)
             {
-                ButtonNotification();
+                if (previousScene != 4)
+                {
+                    ButtonNotification();
+                }
             }
-            if (messageNotificationCooldown < 0 && messageNotificationReady == true && NotificationManager.Instance != null)
+            if (messageNotificationCooldown <= 0 && messageNotificationReady == true && NotificationManager.Instance != null)
             {
                 if (amountOfMessagesReceived < 5)
                 {
@@ -153,5 +156,6 @@ public class GameControllerScript : MonoBehaviour
     public void ButtonNotification()
     {
         NotificationManager.Instance.SetNewNotification("Du kan få et point!", 4);
+        buttonNotificationReady = false;
     }
 }

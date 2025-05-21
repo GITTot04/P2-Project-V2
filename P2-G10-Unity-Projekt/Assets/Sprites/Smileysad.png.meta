@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Smileysad_0: 3048115516797345971
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
